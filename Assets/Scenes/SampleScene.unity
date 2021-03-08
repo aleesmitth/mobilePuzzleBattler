@@ -456,7 +456,8 @@ MonoBehaviour:
   gridSize: {fileID: 11400000, guid: c39e933e517772c438d8187a7f7333b6, type: 2}
   nodeSize: {fileID: 11400000, guid: 85758eff758acf54bbe137296b72122b, type: 2}
   normalNodeHeight: 0
-  selectedNodeHeight: 1
+  selectedNodeHeight: 0.5
+  hoverNodeAnimation: 1
 --- !u!4 &1040200142
 Transform:
   m_ObjectHideFlags: 0

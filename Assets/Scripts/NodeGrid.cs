@@ -10,14 +10,17 @@ public class NodeGrid : MonoBehaviour {
     public Vector3Value nodeSize;
     public float normalNodeHeight;
     public float selectedNodeHeight;
+    public bool hoverNodeAnimation;
     private Node[][] grid;
     private int xNodes;
     private int zNodes;
-    private Node selectedNode;
-    private GameObject selectedNodeGO;
+    private Node hoveredNode;
+    private GameObject hoveredNodeGO;
     private Camera mainCamera;
     private Vector3 mouseClickPosition;
     private GameObject[][] gridGO;
+    private GameObject selectedNodeGO;
+    private Node selectedNode;
 
     private void Start() {
         mainCamera = Camera.main;
@@ -29,27 +32,72 @@ public class NodeGrid : MonoBehaviour {
         var mousePosition = Input.mousePosition;
         mousePosition.z = mainCamera.transform.position.y;
         mousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
-        if (Input.GetMouseButtonDown(0))
-            mouseClickPosition = mousePosition;
-        float xPercentage = (mousePosition.x + gridSize.value.x / 2) / gridSize.value.x;
-        float zPercentage = (mousePosition.z + gridSize.value.z / 2) / gridSize.value.z;
-        int xIndex = Mathf.FloorToInt(Mathf.Clamp(xNodes * xPercentage, 0, xNodes - 1));
-        int zIndex = Mathf.FloorToInt(Mathf.Clamp(zNodes * zPercentage, 0, zNodes - 1));
-        if(selectedNode != null)
-            selectedNode.isSelected = false;
-        selectedNode = grid[xIndex][zIndex];
-        selectedNode.isSelected = true;
         
-        if (gridGO == null) return;
-        if (selectedNodeGO != null) {
-            var normalPosition = selectedNodeGO.transform.position;
-            normalPosition.y = normalNodeHeight;
-            selectedNodeGO.transform.position = normalPosition;
+        GetGridIndex(mousePosition, out var xIndex, out var zIndex);
+        
+        if(hoveredNode != null)
+            hoveredNode.isSelected = false;
+        hoveredNode = grid[xIndex][zIndex];
+        hoveredNode.isSelected = true;
+        
+        if (Input.GetMouseButtonDown(0)) {
+            selectedNode = grid[xIndex][zIndex];
+            selectedNodeGO = gridGO[xIndex][zIndex];
         }
-        selectedNodeGO = gridGO[xIndex][zIndex];
-        var selectedPosition = selectedNodeGO.transform.position;
+        
+        if (Input.GetMouseButton(0)) {
+            mouseClickPosition = mousePosition;
+            NodeFollowMouse(true, mousePosition);
+
+            if (selectedNode.position != grid[xIndex][zIndex].position) {
+                var selectedPositionBuffer = selectedNode.position;
+                var aux = selectedNode.position;
+                selectedNode.position = grid[xIndex][zIndex].position;
+                grid[xIndex][zIndex].position = aux;
+                gridGO[xIndex][zIndex].transform.position = aux;
+                SwapGridNodes(xIndex, zIndex, selectedPositionBuffer);
+            }
+        }
+
+        if (Input.GetMouseButtonUp(0)) {
+            NodeFollowMouse(false);
+            selectedNodeGO.transform.position = selectedNode.position;
+            selectedNode = null;
+            selectedNodeGO = null;
+        }
+
+        if (!hoverNodeAnimation) return;
+        if (gridGO == null) return;
+        if (hoveredNodeGO != null) {
+            var normalPosition = hoveredNodeGO.transform.position;
+            normalPosition.y = normalNodeHeight;
+            hoveredNodeGO.transform.position = normalPosition;
+        }
+        hoveredNodeGO = gridGO[xIndex][zIndex];
+        var selectedPosition = hoveredNodeGO.transform.position;
         selectedPosition.y = selectedNodeHeight;
-        selectedNodeGO.transform.position = selectedPosition;
+        hoveredNodeGO.transform.position = selectedPosition;
+    }
+
+    private void SwapGridNodes(int xIndex, int zIndex, Vector3 selectedNodePosition) {
+        GetGridIndex(selectedNodePosition, out int selectedXIndex, out int selectedZIndex);
+        var auxNode = grid[xIndex][zIndex];
+        var auxNodeGO = gridGO[xIndex][zIndex];
+        grid[xIndex][zIndex] = grid[selectedXIndex][selectedZIndex];
+        gridGO[xIndex][zIndex] = gridGO[selectedXIndex][selectedZIndex];
+        grid[selectedXIndex][selectedZIndex] = auxNode;
+        gridGO[selectedXIndex][selectedZIndex] = auxNodeGO;
+    }
+
+    private void GetGridIndex(Vector3 nodePosition, out int xIndex, out int zIndex) {
+        float xPercentage = (nodePosition.x + gridSize.value.x / 2) / gridSize.value.x;
+        float zPercentage = (nodePosition.z + gridSize.value.z / 2) / gridSize.value.z;
+        xIndex = Mathf.FloorToInt(Mathf.Clamp(xNodes * xPercentage, 0, xNodes - 1));
+        zIndex = Mathf.FloorToInt(Mathf.Clamp(zNodes * zPercentage, 0, zNodes - 1));
+    }
+
+    private void NodeFollowMouse(bool b, Vector3 mousePosition = default) {
+        if (b) selectedNodeGO.transform.position = mousePosition;
     }
 
     private void CreateGrid() {
