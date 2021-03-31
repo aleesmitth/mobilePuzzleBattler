@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Node {
     public Vector3 position;
-    public bool isSelected;
+    public bool isBeingHovered;
     public NodeType nodeType;
 
     public Node(Vector3 position) {
         this.position = position;
-        isSelected = false;
+        isBeingHovered = false;
     }
 }
 
