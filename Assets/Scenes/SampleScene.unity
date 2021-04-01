@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 1040200141}
-  hitNodeMaterial: {fileID: 2100000, guid: 2fbe4d2e6f2d6f148b0cf8688d5b3b10, type: 2}
+  hitNodeMaterial: {fileID: 2100000, guid: 6108e39af51cdb5478dfd0cc5e929812, type: 2}
 --- !u!4 &488618185
 Transform:
   m_ObjectHideFlags: 0

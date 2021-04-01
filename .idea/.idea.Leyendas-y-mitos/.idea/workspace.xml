@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12ce7a81-2e36-49a4-9df6-8784391066b4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/NodeHit.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/NodeHit.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/NodeHit.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/NodeHit.mat.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Node.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NodeGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NodeGrid.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,8 +24,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/EventManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NodeGrid.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NodeGrid.cs" />
       </list>
     </option>
   </component>
@@ -81,7 +80,8 @@
       <workItem from="1614802349350" duration="351000" />
       <workItem from="1615162125205" duration="4253000" />
       <workItem from="1616102222191" duration="924000" />
-      <workItem from="1617223902956" duration="7736000" />
+      <workItem from="1617223902956" duration="8273000" />
+      <workItem from="1617240585760" duration="2422000" />
     </task>
     <servers />
   </component>

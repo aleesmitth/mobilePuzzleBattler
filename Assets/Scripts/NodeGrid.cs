@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using Random = UnityEngine.Random;
@@ -174,13 +175,18 @@ public class NodeGrid : MonoBehaviour {
     }
     public LinkedList<LinkedList<GameObject>> LookForMatrixHits() {
         LinkedList<LinkedList<GameObject>> listOfHits = new LinkedList<LinkedList<GameObject>>();
-        LookForVerticalHits(listOfHits);
-        LookForHorizontalHits(listOfHits);
+        int[] hitsPerColumn = new int[grid.Length];
+        LookForVerticalHits(listOfHits, hitsPerColumn);
+        LookForHorizontalHits(listOfHits, hitsPerColumn);
 
+        for (int i = 0; i < hitsPerColumn.Length; i++) {
+            Debug.Log("In column: " + i + " there was " + hitsPerColumn[i] + " hits" + "\n");
+        }
+        
         return listOfHits;
     }
 
-    private void LookForHorizontalHits(LinkedList<LinkedList<GameObject>> listOfHits) {
+    private void LookForHorizontalHits(LinkedList<LinkedList<GameObject>> listOfHits, int[] hitsPerColumn) {
         for (int i = 0; i < grid[0].Length; i++) {
             var currentType = grid[0][i].nodeType;
             int countInARow = 0;
@@ -190,6 +196,13 @@ public class NodeGrid : MonoBehaviour {
                     if (countInARow >= 3) {
                         listOfHits.AddFirst(new LinkedList<GameObject>());
                         for (; countInARow > 0; countInARow--) {
+                            bool alreadyInList = false;
+                            foreach (var list in listOfHits.Where(list => list.Contains(gridGO[j - countInARow][i]))) {
+                                alreadyInList = true;
+                            }
+                            
+                            if (alreadyInList) continue;
+                            hitsPerColumn[j - countInARow]++;
                             listOfHits.First.Value.AddLast(gridGO[j - countInARow][i]);
                         }
                     }
@@ -202,12 +215,19 @@ public class NodeGrid : MonoBehaviour {
             if (countInARow < 3) continue;
             listOfHits.AddFirst(new LinkedList<GameObject>());
             for (; countInARow > 0; countInARow--) {
+                bool alreadyInList = false;
+                foreach (var list in listOfHits.Where(list => list.Contains(gridGO[grid.Length - countInARow][i]))) {
+                    alreadyInList = true;
+                }
+                            
+                if (alreadyInList) continue;
+                hitsPerColumn[grid.Length - countInARow]++;
                 listOfHits.First.Value.AddLast(gridGO[grid.Length - countInARow][i]);
             }
         }
     }
 
-    private void LookForVerticalHits(LinkedList<LinkedList<GameObject>> listOfHits) {
+    private void LookForVerticalHits(LinkedList<LinkedList<GameObject>> listOfHits, int[] hitsPerColumn) {
         for (int i = 0; i < grid.Length; i++) {
             var currentType = grid[i][0].nodeType;
             int countInARow = 0;
@@ -217,6 +237,12 @@ public class NodeGrid : MonoBehaviour {
                     if (countInARow >= 3) {
                         listOfHits.AddFirst(new LinkedList<GameObject>());
                         for (; countInARow > 0; countInARow--) {
+                            bool alreadyInList = false;
+                            foreach (var list in listOfHits.Where(list => list.Contains(gridGO[i][j - countInARow]))) {
+                                alreadyInList = true;
+                            }
+                            if (alreadyInList) continue;
+                            hitsPerColumn[i]++;
                             listOfHits.First.Value.AddLast(gridGO[i][j - countInARow]);
                         }
                     }
@@ -229,6 +255,12 @@ public class NodeGrid : MonoBehaviour {
             if (countInARow < 3) continue;
             listOfHits.AddFirst(new LinkedList<GameObject>());
             for (; countInARow > 0; countInARow--) {
+                bool alreadyInList = false;
+                foreach (var list in listOfHits.Where(list => list.Contains(gridGO[i][gridGO[i].Length - countInARow]))) {
+                    alreadyInList = true;
+                }
+                if (alreadyInList) continue;
+                hitsPerColumn[i]++;
                 listOfHits.First.Value.AddLast(gridGO[i][gridGO[i].Length - countInARow]);
             }
         }
