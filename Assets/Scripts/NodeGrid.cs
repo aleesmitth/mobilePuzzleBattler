@@ -12,19 +12,81 @@ public class NodeGrid : MonoBehaviour {
     public float normalNodeHeight;
     public float selectedNodeHeight;
     private Node[][] grid;
+    private Vector3[][] positionsGrid;
     private int xNodes;
     private int zNodes;
     private Node hoveredNode;
     private GameObject hoveredNodeGO;
     private Camera mainCamera;
-    private Vector3 mouseClickPosition;
     private GameObject[][] gridGO; //the first [] are the col, second [] the rows. bottom left is 0,0
     private GameObject selectedNodeGO;
     private Node selectedNode;
 
-    private void Start() {
+    private void OnEnable() {
         mainCamera = Camera.main;
         CreateGrid();
+        EventManager.onHitsProcessed += SpawnMissingNodes;
+    }
+
+    private void OnDisable() {
+        EventManager.onHitsProcessed -= SpawnMissingNodes;
+    }
+
+    private void SpawnMissingNodes(int[] hitsPerColumn) {
+
+        SinkRemainingNodes();
+        
+        for (int i = 0; i < hitsPerColumn.Length; i++) {
+            for (int j = 0; j < hitsPerColumn[i]; j++) {
+                var node = new Node(new Vector3
+                    (i * nodeSize.value.x + nodeSize.value.x/2, 0, (j + grid[i].Length) * nodeSize.value.z + nodeSize.value.z/2) - gridSize.value / 2);
+                GameObject nodeGO = default;
+                switch (node.nodeType) {
+                    case NodeType.Cube: nodeGO = CubePool.instance.Get();
+                        break;
+                    case NodeType.Sphere: nodeGO = SpherePool.instance.Get();
+                        break;
+                    default:
+                        break;
+                }
+
+                if (nodeGO is null) continue;
+                nodeGO.transform.position = node.position;
+                //nodeGO.transform.localScale = new Vector3(nodeSize.value.x / 2, 1, nodeSize.value.z / 2);
+                node.position = positionsGrid[i][grid[i].Length - hitsPerColumn[i] + j];
+                grid[i][grid[i].Length - hitsPerColumn[i] + j] = node;
+                gridGO[i][grid[i].Length - hitsPerColumn[i] + j] = nodeGO;
+                nodeGO.GetComponent<FakeGravity>().SetDesiredPosition(node.position);
+            }
+        }
+        
+        //EventManager.OnNewNodesSpawned();
+    }
+    
+    /// <summary>
+    /// sink nodes to bottom of their column if there's space. 
+    /// </summary>
+    private void SinkRemainingNodes() {
+        for (int i = 0; i < grid.Length; i++) {
+            int newPosition = 0;
+            for (int j = 0; j < grid[i].Length; j++) {
+                if (grid[i][j].hasBeenHit) continue;
+                grid[i][newPosition] = grid[i][j];
+                grid[i][newPosition].position = positionsGrid[i][newPosition];
+                gridGO[i][newPosition] = gridGO[i][j];
+                gridGO[i][newPosition].GetComponent<FakeGravity>().SetDesiredPosition(positionsGrid[i][newPosition]);
+                newPosition++;
+            }
+        }
+    }
+
+    public void DestroyHitNodes(LinkedList<LinkedList<GameObject>> hits) {
+        //TODO placeholder, wasting memory should pool destroyed nodes.
+        foreach (var listOfHits in hits) {
+            foreach (var hit in listOfHits) {
+                Destroy(hit);
+            }
+        }
     }
 
     private void Update() {
@@ -47,7 +109,6 @@ public class NodeGrid : MonoBehaviour {
         }
         
         if (Input.GetMouseButton(0)) {
-            mouseClickPosition = mousePosition;
             NodeFollowMouse(true, mousePosition);
             //when entering another node grid tile, swap node tile position.
             //selectedNode keeps original position, selectedNodeGO is the only one moving while being selected.
@@ -78,6 +139,7 @@ public class NodeGrid : MonoBehaviour {
             hoveredNodeGO.transform.position = normalPosition;
         }
         //ups the height of hovered node.
+        if (hoveredNodeGO == null) return;
         hoveredNodeGO = gridGO[xIndex][zIndex];
         var selectedPosition = hoveredNodeGO.transform.position;
         selectedPosition.y = selectedNodeHeight;
@@ -109,11 +171,17 @@ public class NodeGrid : MonoBehaviour {
         xNodes = Mathf.FloorToInt(gridSize.value.x / nodeSize.value.x);
         zNodes = Mathf.FloorToInt(gridSize.value.z / nodeSize.value.z);
         grid = new Node[xNodes][];
+        positionsGrid = new Vector3[xNodes][];
         for (int i = 0; i < grid.Length; i++) {
             grid[i] = new Node[zNodes];
+            positionsGrid[i] = new Vector3[zNodes];
             for (int j = 0; j < grid[i].Length; j++) {
-                grid[i][j] = new Node(new Vector3
-                    (i * nodeSize.value.x + nodeSize.value.x/2, 0, j * nodeSize.value.z + nodeSize.value.z/2) - gridSize.value / 2);
+                var nodePosition = new Vector3
+                                   (i * nodeSize.value.x + nodeSize.value.x / 2, 0,
+                                       j * nodeSize.value.z + nodeSize.value.z / 2) -
+                                   gridSize.value / 2;
+                grid[i][j] = new Node(nodePosition);
+                positionsGrid[i][j] = nodePosition;
             }
         }
     }
@@ -127,12 +195,9 @@ public class NodeGrid : MonoBehaviour {
                 Gizmos.color = Color.cyan;
                 if(node.isBeingHovered)
                     Gizmos.color = Color.yellow;
-                Gizmos.DrawWireCube(node.position, nodeSize.value - .1f * Vector3.one);
+                Gizmos.DrawWireCube(node.position, nodeSize.value);
             }
         }
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(mouseClickPosition, .1f);
     }
 
     public void ResetGrid() {
@@ -159,7 +224,7 @@ public class NodeGrid : MonoBehaviour {
 
         for (int i = 0; i < gridGO.Length; i++) {
             for (int j = 0; j < gridGO[i].Length; j++) {
-                grid[i][j].nodeType = (Random.value > .5) ? NodeType.Cube : NodeType.Sphere;
+                grid[i][j].ResetNodeType();
                 switch (grid[i][j].nodeType) {
                     case NodeType.Cube: gridGO[i][j] = CubePool.instance.Get();
                         break;
@@ -169,7 +234,7 @@ public class NodeGrid : MonoBehaviour {
                         break;
                 }
                 gridGO[i][j].transform.position = grid[i][j].position;
-                gridGO[i][j].transform.localScale = new Vector3(nodeSize.value.x / 2, 1, nodeSize.value.z / 2);
+                gridGO[i][j].GetComponent<FakeGravity>().SetDesiredPosition(grid[i][j].position);
             }
         }
     }
@@ -180,8 +245,10 @@ public class NodeGrid : MonoBehaviour {
         LookForHorizontalHits(listOfHits, hitsPerColumn);
 
         for (int i = 0; i < hitsPerColumn.Length; i++) {
-            Debug.Log("In column: " + i + " there was " + hitsPerColumn[i] + " hits" + "\n");
+            print("In column: " + i + " there was " + hitsPerColumn[i] + " hits");
         }
+
+        EventManager.OnHitsProcessed(hitsPerColumn);
         
         return listOfHits;
     }
@@ -204,6 +271,8 @@ public class NodeGrid : MonoBehaviour {
                             if (alreadyInList) continue;
                             hitsPerColumn[j - countInARow]++;
                             listOfHits.First.Value.AddLast(gridGO[j - countInARow][i]);
+                            //TODO placeholder, there's still no way to calculate points nor combos.
+                            grid[j - countInARow][i].hasBeenHit = true;
                         }
                     }
 
@@ -223,6 +292,8 @@ public class NodeGrid : MonoBehaviour {
                 if (alreadyInList) continue;
                 hitsPerColumn[grid.Length - countInARow]++;
                 listOfHits.First.Value.AddLast(gridGO[grid.Length - countInARow][i]);
+                //TODO placeholder, there's still no way to calculate points nor combos.
+                grid[grid.Length - countInARow][i].hasBeenHit = true;
             }
         }
     }
@@ -244,6 +315,8 @@ public class NodeGrid : MonoBehaviour {
                             if (alreadyInList) continue;
                             hitsPerColumn[i]++;
                             listOfHits.First.Value.AddLast(gridGO[i][j - countInARow]);
+                            //TODO placeholder, there's still no way to calculate points nor combos.
+                            grid[i][j - countInARow].hasBeenHit = true;
                         }
                     }
 
@@ -262,6 +335,8 @@ public class NodeGrid : MonoBehaviour {
                 if (alreadyInList) continue;
                 hitsPerColumn[i]++;
                 listOfHits.First.Value.AddLast(gridGO[i][gridGO[i].Length - countInARow]);
+                //TODO placeholder, there's still no way to calculate points nor combos.
+                grid[i][gridGO[i].Length - countInARow].hasBeenHit = true;
             }
         }
     }
