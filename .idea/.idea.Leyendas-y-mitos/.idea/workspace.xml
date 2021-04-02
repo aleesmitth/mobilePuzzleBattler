@@ -20,18 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12ce7a81-2e36-49a4-9df6-8784391066b4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Sphere.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Sphere.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cube.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Cube.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Sphere.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Sphere.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EventManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/NodeHit.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/NodeHit.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/EndOfMap.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/EndOfMap.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CubePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CubePool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FakeGravity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FakeGravity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Node.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NodeGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NodeGrid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NodePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NodePool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpherePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpherePool.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,8 +55,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Cube2Pool.cs" />
         <option value="$PROJECT_DIR$/Assets/LowerMapBarrier.cs" />
         <option value="$PROJECT_DIR$/Assets/FixMySize.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SpherePool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Node.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NodePool.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SpherePool.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CubePool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NodeGrid.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FakeGravity.cs" />
@@ -119,7 +120,7 @@
       <workItem from="1617240585760" duration="2422000" />
       <workItem from="1617300696131" duration="2415000" />
       <workItem from="1617307294102" duration="14007000" />
-      <workItem from="1617360558830" duration="18850000" />
+      <workItem from="1617360558830" duration="20371000" />
     </task>
     <servers />
   </component>

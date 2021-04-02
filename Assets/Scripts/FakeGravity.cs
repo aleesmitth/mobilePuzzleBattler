@@ -31,9 +31,9 @@ public class FakeGravity : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.S))
-            GravityOn();
         if (Input.GetKeyDown(KeyCode.D))
+            GravityOn();
+        if (Input.GetKeyDown(KeyCode.F))
             GravityOff();
         if (gravityOn && transform.position.z <= desiredPosition.z)
             GravityOff();

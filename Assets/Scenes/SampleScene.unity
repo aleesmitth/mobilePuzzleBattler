@@ -155,7 +155,7 @@ MonoBehaviour:
   prefab: {fileID: 5607549036262266968, guid: 7940354f517393d44b677f0668bee87d, type: 3}
   parent: {fileID: 162999773}
   growthSize: 5
-  newNodeMaterial: {fileID: 2100000, guid: 962b0b8abd841d0478bd889b08edd95c, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 962b0b8abd841d0478bd889b08edd95c, type: 2}
 --- !u!4 &162999773
 Transform:
   m_ObjectHideFlags: 0
@@ -276,6 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 1040200141}
+  hitNodeMat: {fileID: 2100000, guid: 1547be29c6e276d4b9de4e66ce0a8caf, type: 2}
 --- !u!4 &488618185
 Transform:
   m_ObjectHideFlags: 0
@@ -542,12 +543,15 @@ MonoBehaviour:
 
     SPACE to spawn nodes
 
-    A to hit nodes in line
+    A to mark hit nodes in
+    line
 
-    S
-    to start the new nodes drop
+    S to hit nodes in line
 
-    D to stop the drop'
+    D to start the new nodes drop
+
+    F to
+    stop the drop'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -574,7 +578,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52.45
+  m_fontSize: 43.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -702,7 +706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 60, z: 0}
+  m_LocalPosition: {x: 0, y: 80, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -849,7 +853,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137731028}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 60, z: 0}
+  m_LocalPosition: {x: 0, y: 80, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1371278244}
@@ -1187,7 +1191,7 @@ MonoBehaviour:
   prefab: {fileID: 7497862720403292795, guid: b54912d911613df4fbafe2be12c47fa7, type: 3}
   parent: {fileID: 1962029988}
   growthSize: 5
-  newNodeMaterial: {fileID: 2100000, guid: b9c159e6d98758241822a22532f25b34, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: b9c159e6d98758241822a22532f25b34, type: 2}
 --- !u!4 &1962029988
 Transform:
   m_ObjectHideFlags: 0
