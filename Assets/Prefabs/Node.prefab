@@ -9,15 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1406466256235340354}
-  - component: {fileID: 3558882043146430353}
   - component: {fileID: 9106220718161960900}
   - component: {fileID: 4329415834506340927}
   - component: {fileID: 2793345299490888433}
   - component: {fileID: 3705626214453465083}
   - component: {fileID: -5595107924295712092}
+  - component: {fileID: 1022188254989119195}
   m_Layer: 0
-  m_Name: Cube2
-  m_TagString: Untagged
+  m_Name: Node
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,14 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3558882043146430353
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7497862720403292795}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &9106220718161960900
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63,7 +55,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 962b0b8abd841d0478bd889b08edd95c, type: 2}
+  - {fileID: 2100000, guid: b9c159e6d98758241822a22532f25b34, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,3 +135,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mr: {fileID: 9106220718161960900}
   nodeSize: {fileID: 11400000, guid: 85758eff758acf54bbe137296b72122b, type: 2}
+--- !u!114 &1022188254989119195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7497862720403292795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce6b09bb9c995342ac8e8a08e1557d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mr: {fileID: 9106220718161960900}
+  defaultMat: {fileID: 2100000, guid: b9c159e6d98758241822a22532f25b34, type: 2}
+  invisibleMat: {fileID: 2100000, guid: 2fbe4d2e6f2d6f148b0cf8688d5b3b10, type: 2}

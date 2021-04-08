@@ -11,6 +11,7 @@ public class NodeGrid : MonoBehaviour {
     public Vector3Value nodeSize;
     public float normalNodeHeight;
     public float selectedNodeHeight;
+    public int newNodesOffset;
     private Node[][] grid;
     private Vector3[][] positionsGrid;
     private int xNodes;
@@ -39,18 +40,10 @@ public class NodeGrid : MonoBehaviour {
         for (int i = 0; i < hitsPerColumn.Length; i++) {
             for (int j = 0; j < hitsPerColumn[i]; j++) {
                 var node = new Node(new Vector3
-                    (i * nodeSize.value.x + nodeSize.value.x/2, 0, (j + grid[i].Length) * nodeSize.value.z + nodeSize.value.z/2) - gridSize.value / 2);
+                    (i * nodeSize.value.x + nodeSize.value.x/2, 0, newNodesOffset + (j + grid[i].Length) * nodeSize.value.z + nodeSize.value.z/2) - gridSize.value / 2);
                 GameObject nodeGO = default;
-                switch (node.nodeType) {
-                    case NodeType.Cube: nodeGO = CubePool.instance.Get();
-                        break;
-                    case NodeType.Sphere: nodeGO = SpherePool.instance.Get();
-                        break;
-                    default:
-                        break;
-                }
-
-                if (nodeGO is null) continue;
+                nodeGO = PoolManager.Get(node.nodeType);
+                nodeGO.GetComponent<MaterialController>().MakeInvisible();
                 nodeGO.transform.position = node.position;
                 //nodeGO.transform.localScale = new Vector3(nodeSize.value.x / 2, 1, nodeSize.value.z / 2);
                 node.position = positionsGrid[i][grid[i].Length - hitsPerColumn[i] + j];
@@ -210,14 +203,7 @@ public class NodeGrid : MonoBehaviour {
         else {
             for (int i = 0; i < gridGO.Length; i++) {
                 for (int j = 0; j < gridGO[i].Length; j++) {
-                    switch (grid[i][j].nodeType) {
-                        case NodeType.Cube: CubePool.instance.DestroyObject(gridGO[i][j]);
-                            break;
-                        case NodeType.Sphere: SpherePool.instance.DestroyObject(gridGO[i][j]);
-                            break;
-                        default:
-                            break;
-                    }
+                    PoolManager.Destroy(grid[i][j].nodeType, gridGO[i][j]);
                 }
             }
         }
@@ -225,14 +211,7 @@ public class NodeGrid : MonoBehaviour {
         for (int i = 0; i < gridGO.Length; i++) {
             for (int j = 0; j < gridGO[i].Length; j++) {
                 grid[i][j].ResetNodeType();
-                switch (grid[i][j].nodeType) {
-                    case NodeType.Cube: gridGO[i][j] = CubePool.instance.Get();
-                        break;
-                    case NodeType.Sphere: gridGO[i][j] = SpherePool.instance.Get();
-                        break;
-                    default:
-                        break;
-                }
+                gridGO[i][j] = PoolManager.Get(grid[i][j].nodeType);
                 gridGO[i][j].transform.position = grid[i][j].position;
                 gridGO[i][j].GetComponent<FakeGravity>().SetDesiredPosition(grid[i][j].position);
             }

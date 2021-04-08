@@ -36,4 +36,11 @@ public class GameManager : MonoBehaviour {
             grid.DestroyHitNodes(hits);
         }
     }
+    
+    //here i should process hit info, as damage, target, combo etc.
+    //double check but pretty sure that list of hits, has 1 list per line that hit, with no duplicated nodes if
+    //it hits both vertically and horizontally
+    //so i could do like
+    //Combo points = 1 + numberOfLists * 0.1f (this would give me 10% bonus increase per line hit.
+    //elementDamage = NodesOfElement * Combo points
 }

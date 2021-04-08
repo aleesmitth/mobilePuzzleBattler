@@ -123,6 +123,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &128563219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 128563220}
+  - component: {fileID: 128563221}
+  m_Layer: 0
+  m_Name: CylinderPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &128563220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128563219}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 30, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1430409176}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &128563221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128563219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836ff5e6ff79a384fb415b1df8b5bb18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 7497862720403292795, guid: 0d6493273cd46c446bd8729b99e437f9, type: 3}
+  parent: {fileID: 128563220}
+  growthSize: 5
+  defaultMaterial: {fileID: 2100000, guid: 6b22d158c43f52542ae0955b32458929, type: 2}
 --- !u!1 &162999771
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfd8b8cacbed8d54eb5987f34d5cd8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5607549036262266968, guid: 7940354f517393d44b677f0668bee87d, type: 3}
+  prefab: {fileID: 4492532404354005061, guid: 52d4cb3210f49f449bf9a9937a50ff46, type: 3}
   parent: {fileID: 162999773}
   growthSize: 5
   defaultMaterial: {fileID: 2100000, guid: 962b0b8abd841d0478bd889b08edd95c, type: 2}
@@ -779,6 +826,7 @@ MonoBehaviour:
   nodeSize: {fileID: 11400000, guid: 85758eff758acf54bbe137296b72122b, type: 2}
   normalNodeHeight: 0
   selectedNodeHeight: 0.5
+  newNodesOffset: 5
 --- !u!4 &1040200142
 Transform:
   m_ObjectHideFlags: 0
@@ -793,6 +841,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1096940190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1096940191}
+  - component: {fileID: 1096940192}
+  m_Layer: 0
+  m_Name: CapsulePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1096940191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096940190}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 30, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1430409176}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1096940192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096940190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f2658e147720ea4cb8a6770be62b4ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8145819276965708086, guid: e6467380f2d73794f8d851a46ecd7b17, type: 3}
+  parent: {fileID: 1096940191}
+  growthSize: 5
+  defaultMaterial: {fileID: 2100000, guid: 3b5a2f48b152e604aa4015815bf66ac1, type: 2}
 --- !u!1 &1137731028
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,6 +1078,8 @@ Transform:
   m_Children:
   - {fileID: 1962029988}
   - {fileID: 162999773}
+  - {fileID: 128563220}
+  - {fileID: 1096940191}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1096,8 +1193,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSize: {fileID: 11400000, guid: c39e933e517772c438d8187a7f7333b6, type: 2}
-  prefab: {fileID: 5361863138635231037, guid: a5cae08b5ac2c8a4b815283e4cb5a1e9, type: 3}
-  mr: {fileID: 6322445484545777968, guid: a5cae08b5ac2c8a4b815283e4cb5a1e9, type: 3}
+  prefab: {fileID: 1021489480409347471, guid: 7eb9b5599c3bdf744a5e30d64c31b7b0, type: 3}
+  mr: {fileID: 1912835576160678469, guid: 7eb9b5599c3bdf744a5e30d64c31b7b0, type: 3}
 --- !u!850595691 &1760060135
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1188,7 +1285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b97c00c89189346a88d34e97f5bf9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7497862720403292795, guid: b54912d911613df4fbafe2be12c47fa7, type: 3}
+  prefab: {fileID: 7497862720403292795, guid: b9a23f260efdc4d409527ee00a38c166, type: 3}
   parent: {fileID: 1962029988}
   growthSize: 5
   defaultMaterial: {fileID: 2100000, guid: b9c159e6d98758241822a22532f25b34, type: 2}

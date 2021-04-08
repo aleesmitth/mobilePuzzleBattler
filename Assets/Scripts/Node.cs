@@ -9,18 +9,29 @@ public class Node {
     public bool hasBeenHit;
 
     public Node(Vector3 position) {
-        nodeType = (Random.value > .5) ? NodeType.Cube : NodeType.Sphere;
+        nodeType = GetRandomType();
         this.position = position;
         isBeingHovered = false;
         hasBeenHit = false;
     }
 
     public void ResetNodeType() {
-        nodeType = (Random.value > .5) ? NodeType.Cube : NodeType.Sphere;
+        nodeType = GetRandomType();
+        //nodeType = (Random.value > .5) ? NodeType.Cube : NodeType.Sphere;
+    }
+
+    private NodeType GetRandomType() {
+        var randomValue = Random.value;
+        if (randomValue <= .25) return NodeType.Cube;
+        if (randomValue > .25 && randomValue <= .5) return NodeType.Sphere;
+        if (randomValue > .5 && randomValue <= .75) return NodeType.Cylinder;
+        return NodeType.Capsule;
     }
 }
 
 public enum NodeType {
     Cube,
-    Sphere
+    Sphere,
+    Cylinder,
+    Capsule
 }

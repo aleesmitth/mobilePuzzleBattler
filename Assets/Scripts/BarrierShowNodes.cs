@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LowerMapBarrier : MonoBehaviour {
+public class BarrierShowNodes : MonoBehaviour {
     public Vector3Value gridSize;
     public GameObject prefab;
     public MeshRenderer mr;
@@ -13,19 +13,20 @@ public class LowerMapBarrier : MonoBehaviour {
     }
 
     private void Start() {
-        SpawnLowerBarrier();
+        //SpawnLowerBarrier();
     }
 
     private void SpawnLowerBarrier() {
         GameObject barrier = Instantiate(prefab);
         var position = transform.position;
         var barrierPosition = position;
+        barrierPosition.y = 0;
         var bounds = mr.bounds;
-        barrierPosition.z -= (gridSize.value.z + bounds.size.z) / 2;
+        barrierPosition.z += (gridSize.value.z + bounds.size.z) / 2;
         barrier.transform.position = barrierPosition;
 
         var scale = barrier.transform.localScale;
-        scale.x = gridSize.value.x / bounds.size.x;
+        scale.x = gridSize.value.x / bounds.size.x; 
         barrier.transform.localScale = scale;
     }
 }
