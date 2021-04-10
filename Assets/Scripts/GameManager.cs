@@ -17,6 +17,12 @@ public class GameManager : MonoBehaviour {
         
     }
 
+    private void OnEnable() {
+        EventManager.onNodesDestroyed += ProcessDestroyedNodes;
+    }
+    
+    //TODO theres a bug if i press S -> A -> SPACE the game breaks, it's because A is mostly for debugging.
+    //TODO i'm not sure why it happens but for now it's not worth looking into, A will be removed, it's just for show
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
             grid.ResetGrid();
@@ -43,4 +49,43 @@ public class GameManager : MonoBehaviour {
     //so i could do like
     //Combo points = 1 + numberOfLists * 0.1f (this would give me 10% bonus increase per line hit.
     //elementDamage = NodesOfElement * Combo points
+    private void ProcessDestroyedNodes(LinkedList<LinkedList<NodeType>> listsOfElementsHit) {
+        float comboBonus = 1 + listsOfElementsHit.Count * .1f;
+        Dictionary<NodeType, float> elementsDamage = new Dictionary<NodeType, float>();
+        foreach (NodeType element in Enum.GetValues(typeof(NodeType))) {
+            elementsDamage.Add(element,0);
+        }
+
+        foreach (var list in listsOfElementsHit) {
+            if (list.Count == 0) continue;
+            print(list.First.Value);
+            print(elementsDamage[list.First.Value]);
+            elementsDamage[list.First.Value] += list.Count;
+        }
+        
+        //debug lines
+        foreach (var element in elementsDamage) {
+            print("Of element: " + element.Key + " there was " + element.Value + " nodes hit");
+        }
+        
+        print("Combo is " + ((comboBonus - 1)*100) + "%" + " and multiplier is " + comboBonus);
+
+        elementsDamage = ApplyCombo(comboBonus, elementsDamage);
+        
+        //debug lines
+        foreach (var element in elementsDamage) {
+            print("Of element: " + element.Key + " total damage is " + element.Value);
+        }
+        
+    }
+
+    private Dictionary<NodeType, float> ApplyCombo(float comboBonus, Dictionary<NodeType,float> elementsDamage) {
+        Dictionary<NodeType, float> updatedElementsDamage = new Dictionary<NodeType, float>();
+        foreach (var element in elementsDamage) {
+            var damage = element.Value * comboBonus;
+            updatedElementsDamage.Add(element.Key, damage);
+        }
+
+        return updatedElementsDamage;
+    }
 }

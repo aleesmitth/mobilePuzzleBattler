@@ -10,6 +10,7 @@ public class EventManager {
     public static event Action<Vector2> onNewEdgeWith;
     public static event Action<int[]> onHitsProcessed;
     public static event Action onNewNodesSpawned;
+    public static event Action<LinkedList<LinkedList<NodeType>>> onNodesDestroyed;
 
     public static void OnDeleteNode(Vector3 position, TextMeshProUGUI textMeshProUGUI) {
         onDeleteNode?.Invoke(position, textMeshProUGUI);
@@ -29,5 +30,9 @@ public class EventManager {
 
     public static void OnNewNodesSpawned() {
         onNewNodesSpawned?.Invoke();
+    }
+
+    public static void OnNodesDestroyed(LinkedList<LinkedList<NodeType>> hits) {
+        onNodesDestroyed?.Invoke(hits);
     }
 }

@@ -20,56 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12ce7a81-2e36-49a4-9df6-8784391066b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BarrierShowNodes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BarrierShowNodes.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/FixMySize.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/FixMySize.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MaterialController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MaterialController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Pools.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/CapsulePool.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/CapsulePool.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/CylinderPool.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/CylinderPool.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/PoolManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/PoolManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ShowNodesCollider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ShowNodesCollider.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FixMySize.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FixMySize.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LowerMapBarrier.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LowerMapBarrier.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Cube.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Cube.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Floor.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Floor.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/HitNode.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/HitNode.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Sphere.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Sphere.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cube.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Cube.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cube.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Cube.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cube2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cube2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/EndOfMap.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/EndOfMap.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Sphere.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Sphere.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Sphere.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Sphere.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CubePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/CubePool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CubePool.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/CubePool.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SO/EventManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EventManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SO/EventManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Node.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NodeGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NodeGrid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NodePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/NodePool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NodePool.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/NodePool.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SO/NodeFallVelocity.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SO/NodeFallVelocity.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpherePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/SpherePool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpherePool.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/SpherePool.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vector3Value.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SO/Vector3Value.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vector3Value.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SO/Vector3Value.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/PoolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/PoolManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SO/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SO/EventManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +50,9 @@
       <option value="$PROJECT_DIR$/Assets/CapsulePool.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Node.cs" />
       <option value="$PROJECT_DIR$/Assets/ShowNodesCollider.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SO/EventManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/NodeGrid.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Pools/PoolManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
     </changedPaths>
   </component>
@@ -156,6 +117,10 @@
       <workItem from="1617733942849" duration="97000" />
       <workItem from="1617734114033" duration="6712000" />
       <workItem from="1617832071332" duration="2069000" />
+      <workItem from="1617924180875" duration="9000" />
+      <workItem from="1617998809435" duration="7062000" />
+      <workItem from="1618014022354" duration="1095000" />
+      <workItem from="1618015675021" duration="2409000" />
     </task>
     <servers />
   </component>

@@ -4,16 +4,11 @@ internal static class PoolManager {
     public static GameObject Get(NodeType nodeType) {
         switch (nodeType) {
             case NodeType.Cube: return CubePool.instance.Get();
-                break;
             case NodeType.Sphere: return SpherePool.instance.Get();
-                break;
             case NodeType.Cylinder: return CylinderPool.instance.Get();
-                break;
             case NodeType.Capsule: return CapsulePool.instance.Get();
-                break;
             default:
                 return CubePool.instance.Get();
-                break;
         }
     }
 

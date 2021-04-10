@@ -220,19 +220,28 @@ public class NodeGrid : MonoBehaviour {
     public LinkedList<LinkedList<GameObject>> LookForMatrixHits() {
         LinkedList<LinkedList<GameObject>> listOfHits = new LinkedList<LinkedList<GameObject>>();
         int[] hitsPerColumn = new int[grid.Length];
-        LookForVerticalHits(listOfHits, hitsPerColumn);
-        LookForHorizontalHits(listOfHits, hitsPerColumn);
 
-        for (int i = 0; i < hitsPerColumn.Length; i++) {
-            print("In column: " + i + " there was " + hitsPerColumn[i] + " hits");
+        LinkedList<LinkedList<NodeType>> listsOfElementsHit = new LinkedList<LinkedList<NodeType>>();
+        var listsOfColumnElementsHit = LookForVerticalHits(listOfHits, hitsPerColumn);
+        var listsOfRowElementsHit = LookForHorizontalHits(listOfHits, hitsPerColumn);
+
+        foreach (var list in listsOfColumnElementsHit) {
+            listsOfElementsHit.AddLast(list);
         }
+        
+        foreach (var list in listsOfRowElementsHit) {
+            listsOfElementsHit.AddLast(list);
+        }
+        
+        EventManager.OnNodesDestroyed(listsOfElementsHit);
 
         EventManager.OnHitsProcessed(hitsPerColumn);
         
         return listOfHits;
     }
 
-    private void LookForHorizontalHits(LinkedList<LinkedList<GameObject>> listOfHits, int[] hitsPerColumn) {
+    private LinkedList<LinkedList<NodeType>> LookForHorizontalHits(LinkedList<LinkedList<GameObject>> listOfHits, int[] hitsPerColumn) {
+        var listsOfElementsHit = new LinkedList<LinkedList<NodeType>>();
         for (int i = 0; i < grid[0].Length; i++) {
             var currentType = grid[0][i].nodeType;
             int countInARow = 0;
@@ -240,6 +249,7 @@ public class NodeGrid : MonoBehaviour {
                 if (currentType == grid[j][i].nodeType) countInARow++;
                 else {
                     if (countInARow >= 3) {
+                        listsOfElementsHit.AddFirst(new LinkedList<NodeType>());
                         listOfHits.AddFirst(new LinkedList<GameObject>());
                         for (; countInARow > 0; countInARow--) {
                             bool alreadyInList = false;
@@ -249,6 +259,7 @@ public class NodeGrid : MonoBehaviour {
                             
                             if (alreadyInList) continue;
                             hitsPerColumn[j - countInARow]++;
+                            listsOfElementsHit.First.Value.AddLast(currentType);
                             listOfHits.First.Value.AddLast(gridGO[j - countInARow][i]);
                             //TODO placeholder, there's still no way to calculate points nor combos.
                             grid[j - countInARow][i].hasBeenHit = true;
@@ -261,6 +272,7 @@ public class NodeGrid : MonoBehaviour {
             }
             
             if (countInARow < 3) continue;
+            listsOfElementsHit.AddFirst(new LinkedList<NodeType>());
             listOfHits.AddFirst(new LinkedList<GameObject>());
             for (; countInARow > 0; countInARow--) {
                 bool alreadyInList = false;
@@ -270,14 +282,18 @@ public class NodeGrid : MonoBehaviour {
                             
                 if (alreadyInList) continue;
                 hitsPerColumn[grid.Length - countInARow]++;
+                listsOfElementsHit.First.Value.AddLast(currentType);
                 listOfHits.First.Value.AddLast(gridGO[grid.Length - countInARow][i]);
                 //TODO placeholder, there's still no way to calculate points nor combos.
                 grid[grid.Length - countInARow][i].hasBeenHit = true;
             }
         }
+
+        return listsOfElementsHit;
     }
 
-    private void LookForVerticalHits(LinkedList<LinkedList<GameObject>> listOfHits, int[] hitsPerColumn) {
+    private LinkedList<LinkedList<NodeType>> LookForVerticalHits(LinkedList<LinkedList<GameObject>> listOfHits, int[] hitsPerColumn) {
+        var listsOfElementsHit = new LinkedList<LinkedList<NodeType>>();
         for (int i = 0; i < grid.Length; i++) {
             var currentType = grid[i][0].nodeType;
             int countInARow = 0;
@@ -285,6 +301,7 @@ public class NodeGrid : MonoBehaviour {
                 if (currentType == grid[i][j].nodeType) countInARow++;
                 else {
                     if (countInARow >= 3) {
+                        listsOfElementsHit.AddFirst(new LinkedList<NodeType>());
                         listOfHits.AddFirst(new LinkedList<GameObject>());
                         for (; countInARow > 0; countInARow--) {
                             bool alreadyInList = false;
@@ -293,6 +310,7 @@ public class NodeGrid : MonoBehaviour {
                             }
                             if (alreadyInList) continue;
                             hitsPerColumn[i]++;
+                            listsOfElementsHit.First.Value.AddLast(currentType);
                             listOfHits.First.Value.AddLast(gridGO[i][j - countInARow]);
                             //TODO placeholder, there's still no way to calculate points nor combos.
                             grid[i][j - countInARow].hasBeenHit = true;
@@ -305,6 +323,7 @@ public class NodeGrid : MonoBehaviour {
             }
 
             if (countInARow < 3) continue;
+            listsOfElementsHit.AddFirst(new LinkedList<NodeType>());
             listOfHits.AddFirst(new LinkedList<GameObject>());
             for (; countInARow > 0; countInARow--) {
                 bool alreadyInList = false;
@@ -313,11 +332,14 @@ public class NodeGrid : MonoBehaviour {
                 }
                 if (alreadyInList) continue;
                 hitsPerColumn[i]++;
+                listsOfElementsHit.First.Value.AddLast(currentType);
                 listOfHits.First.Value.AddLast(gridGO[i][gridGO[i].Length - countInARow]);
                 //TODO placeholder, there's still no way to calculate points nor combos.
                 grid[i][gridGO[i].Length - countInARow].hasBeenHit = true;
             }
         }
+
+        return listsOfElementsHit;
     }
 
     public LinkedList<LinkedList<GameObject>> GetMatrixHits() {
@@ -325,6 +347,10 @@ public class NodeGrid : MonoBehaviour {
         int[] hitsPerColumn = new int[grid.Length];
         LookForVerticalHits(listOfHits, hitsPerColumn);
         LookForHorizontalHits(listOfHits, hitsPerColumn);
+
+        for (int i = 0; i < hitsPerColumn.Length; i++) {
+            print("In column: " + i + " there was " + hitsPerColumn[i] + " hits");
+        }
         
         return listOfHits;
     }
