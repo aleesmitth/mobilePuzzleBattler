@@ -9,20 +9,30 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="BarrierShowNodes.cs" t="Include" />
+          <e p="Card.cs" t="Include" />
+          <e p="CardContainer.cs" t="Include" />
+          <e p="Deck.cs" t="Include" />
           <e p="FakeGravity.cs" t="Include" />
           <e p="FixMySize.cs" t="Include" />
           <e p="FloatValue.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
+          <e p="HandOfCards.cs" t="Include" />
           <e p="MaterialController.cs" t="Include" />
           <e p="Node.cs" t="Include" />
           <e p="NodeGrid.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
           <e p="Pools" t="Include">
-            <e p="CapsulePool.cs" t="Include" />
-            <e p="CubePool.cs" t="Include" />
-            <e p="CylinderPool.cs" t="Include" />
-            <e p="NodePool.cs" t="Include" />
-            <e p="PoolManager.cs" t="Include" />
-            <e p="SpherePool.cs" t="Include" />
+            <e p="Cards" t="Include">
+              <e p="CardsPool.cs" t="Include" />
+            </e>
+            <e p="Node" t="Include">
+              <e p="CapsulePool.cs" t="Include" />
+              <e p="CubePool.cs" t="Include" />
+              <e p="CylinderPool.cs" t="Include" />
+              <e p="NodePool.cs" t="Include" />
+              <e p="PoolManager.cs" t="Include" />
+              <e p="SpherePool.cs" t="Include" />
+            </e>
           </e>
           <e p="ShowNodesCollider.cs" t="Include" />
           <e p="SO" t="Include">

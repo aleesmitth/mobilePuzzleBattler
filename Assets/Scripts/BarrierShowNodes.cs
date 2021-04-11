@@ -20,9 +20,9 @@ public class BarrierShowNodes : MonoBehaviour {
         GameObject barrier = Instantiate(prefab);
         var position = transform.position;
         var barrierPosition = position;
-        barrierPosition.y = 0;
         var bounds = mr.bounds;
-        barrierPosition.z += (gridSize.value.z + bounds.size.z) / 2;
+        barrierPosition.z = (gridSize.value.z + bounds.size.z) / 2;
+        barrierPosition.y = 0;
         barrier.transform.position = barrierPosition;
 
         var scale = barrier.transform.localScale;

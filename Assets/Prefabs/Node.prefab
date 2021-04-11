@@ -149,4 +149,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mr: {fileID: 9106220718161960900}
   defaultMat: {fileID: 2100000, guid: b9c159e6d98758241822a22532f25b34, type: 2}
-  invisibleMat: {fileID: 2100000, guid: 2fbe4d2e6f2d6f148b0cf8688d5b3b10, type: 2}
+  invisibleMat: {fileID: 2100000, guid: 1a6a4e8083a54b842a999f3c81da3588, type: 2}
