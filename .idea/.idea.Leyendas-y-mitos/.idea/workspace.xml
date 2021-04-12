@@ -20,41 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12ce7a81-2e36-49a4-9df6-8784391066b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Card.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Card.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Deck.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Deck.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/HandOfCards.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/HandOfCards.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Leyendas-y-mitos/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Capsule.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Capsule.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Cube.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Cube.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Cylinder.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Cylinder.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Floor.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Floor.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Sphere.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Sphere.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Capsule.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Capsule.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cube.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Cube.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cube.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Cube.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cylinder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Cylinder.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cylinder.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Cylinder.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Node.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Node.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Sphere.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Sphere.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Card.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Card.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BarrierShowNodes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BarrierShowNodes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/CapsulePool.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/CapsulePool.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/CubePool.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/CubePool.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/CylinderPool.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/CylinderPool.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/NodePool.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/NodePool.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/PoolManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/PoolManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/SpherePool.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/SpherePool.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SO/GridSize.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SO/GridSize.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardContainer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Deck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Deck.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HandOfCards.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HandOfCards.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NodeGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NodeGrid.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,15 +57,17 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Node.cs" />
       <option value="$PROJECT_DIR$/Assets/ShowNodesCollider.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SO/EventManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/NodeGrid.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Pools/PoolManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Pools/Cards/CardsPool.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CardContainer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Deck.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/BarrierShowNodes.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/NodeGrid.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Card.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/HandOfCards.cs" />
+      <option value="$PROJECT_DIR$/Assets/AddCardsToDeck.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CardContainer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Deck.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1pGGy51ZYLzgwX4qHAklYCN1jWN" />
@@ -156,6 +136,7 @@
       <workItem from="1618014022354" duration="1095000" />
       <workItem from="1618015675021" duration="2469000" />
       <workItem from="1618103635253" duration="7285000" />
+      <workItem from="1618191203390" duration="8305000" />
     </task>
     <servers />
   </component>

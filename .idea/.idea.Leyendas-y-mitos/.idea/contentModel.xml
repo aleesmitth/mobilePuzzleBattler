@@ -7,6 +7,7 @@
     <e p="C:\Users\ale\Desktop\UnityProjects\Leyendas-y-mitos" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="AddCardsToDeck.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="BarrierShowNodes.cs" t="Include" />
           <e p="Card.cs" t="Include" />

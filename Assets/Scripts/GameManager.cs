@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
     public NodeGrid grid;
     public Material hitNodeMat;
+    public Player player;
+    public FloatValue handSize;
     private void Awake() {
         if (instance == null) {
             instance = this;
@@ -87,5 +90,13 @@ public class GameManager : MonoBehaviour {
         }
 
         return updatedElementsDamage;
+    }
+
+    public void AddCardsToDeck(TMP_InputField inputNumber) {
+        player.AddCardsToDeck(inputNumber);
+    }
+
+    public void Draw() {
+        player.Draw((int)handSize.value);
     }
 }

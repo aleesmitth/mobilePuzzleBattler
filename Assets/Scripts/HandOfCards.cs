@@ -38,9 +38,11 @@ public class HandOfCards : MonoBehaviour {
     }
 
     public void Draw(int amount, Deck deck) {
+        cards = new LinkedList<Card>();
         deck.Draw(amount, cards);
         int i = 0;
         foreach (var card in cards) {
+            print("my physicall card, number " + i);
             cardsGO[i].GetComponent<CardContainer>().SetCard(card);
             i++;
         }

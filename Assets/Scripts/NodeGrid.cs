@@ -83,7 +83,7 @@ public class NodeGrid : MonoBehaviour {
     }
 
     private void Update() {
-        if (grid == null) return;
+        if (grid == null || gridGO == null) return;
         var mousePosition = Input.mousePosition;
         mousePosition.z = mainCamera.transform.position.y;
         mousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
