@@ -343,4 +343,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dac64180416077479cb133bb1f1a927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardText: {fileID: 8107150809425512244}
+  cardTextDisplay: {fileID: 8107150809425512244}
+  materials:
+  - {fileID: 2100000, guid: b9c159e6d98758241822a22532f25b34, type: 2}
+  - {fileID: 2100000, guid: 962b0b8abd841d0478bd889b08edd95c, type: 2}
+  - {fileID: 2100000, guid: 6b22d158c43f52542ae0955b32458929, type: 2}
+  - {fileID: 2100000, guid: 3b5a2f48b152e604aa4015815bf66ac1, type: 2}

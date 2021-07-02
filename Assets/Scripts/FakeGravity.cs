@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FakeGravity : MonoBehaviour {
     public Rigidbody rb;
-    public Collider collider;
+    public new Collider collider;
     public FloatValue nodeFallVelocity;
     private Vector3 desiredPosition;
     private bool gravityOn = false;

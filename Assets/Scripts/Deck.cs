@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Deck {
     private LinkedList<Card> cards;
@@ -16,7 +18,11 @@ public class Deck {
     }
 
     public void AddCard() {
-        cards.AddLast(new Card("Card n° " + cards.Count));
-        Debug.Log("Added" + cards.Count + " cards.");
+        //hard coded random card type
+        Array values = Enum.GetValues(typeof(NodeType));
+        NodeType randomType = (NodeType)values.GetValue((int)(Random.value * values.Length));
+        
+        cards.AddLast(new Card("Card n° " + cards.Count, randomType));
+        Debug.Log("Added cads, now the total is " + cards.Count + " cards.");
     }
 }

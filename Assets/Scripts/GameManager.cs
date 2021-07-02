@@ -17,14 +17,13 @@ public class GameManager : MonoBehaviour {
         }
         else if(instance!=this)
             Destroy(gameObject);
-        
     }
 
     private void OnEnable() {
         EventManager.onNodesDestroyed += ProcessDestroyedNodes;
     }
     
-    //TODO theres a bug if i press S -> A -> SPACE the game breaks, it's because A is mostly for debugging.
+    //TODO theres a bug if i press S -> A -> S the game breaks, it's because A is mostly for debugging.
     //TODO i'm not sure why it happens but for now it's not worth looking into, A will be removed, it's just for show
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
@@ -79,7 +78,9 @@ public class GameManager : MonoBehaviour {
         foreach (var element in elementsDamage) {
             print("Of element: " + element.Key + " total damage is " + element.Value);
         }
-        
+        //aca deberia mandarle al player los elementsDamage, y cada carta va a saber si su elemento esta
+        //y como actuar.
+        player.PlayCards(elementsDamage);
     }
 
     private Dictionary<NodeType, float> ApplyCombo(float comboBonus, Dictionary<NodeType,float> elementsDamage) {

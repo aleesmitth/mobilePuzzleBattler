@@ -52,7 +52,6 @@ public class NodeGrid : MonoBehaviour {
                 nodeGO.GetComponent<FakeGravity>().SetDesiredPosition(node.position);
             }
         }
-        
         //EventManager.OnNewNodesSpawned();
     }
     

@@ -10,7 +10,7 @@ public class HandOfCards : MonoBehaviour {
     private GameObject[] cardsGO;
 
     private void OnEnable() {
-        var offsetSoItsVisible = .5f;
+        var spaceBetweenCards = .5f;
         cardsGO = new GameObject[(int)handSize.value];
         float cardSizeX = gridSize.value.x / handSize.value;
         for (int i = 0; i < handSize.value; i++) {
@@ -24,7 +24,7 @@ public class HandOfCards : MonoBehaviour {
             scale.z = cardSize.value / bounds.size.z;
             cardsGO[i].transform.localScale = scale;
             
-            position.x = (- gridSize.value.x + cardSizeX) / 2 + i * cardSizeX + i * offsetSoItsVisible;
+            position.x = (- gridSize.value.x + cardSizeX) / 2 + i * cardSizeX + i * spaceBetweenCards;
             position.z = (gridSize.value.z + bounds.size.z * scale.z) / 2;
             position.y = 0;
             cardsGO[i].transform.position = position;
@@ -38,13 +38,19 @@ public class HandOfCards : MonoBehaviour {
     }
 
     public void Draw(int amount, Deck deck) {
-        cards = new LinkedList<Card>();
+        this.cards = new LinkedList<Card>();
         deck.Draw(amount, cards);
         int i = 0;
         foreach (var card in cards) {
             print("my physicall card, number " + i);
             cardsGO[i].GetComponent<CardContainer>().SetCard(card);
             i++;
+        }
+    }
+
+    public void PlayCards(Dictionary<NodeType,float> elementsDamage) {
+        foreach (var card in cards) {
+            card.PlayCard(elementsDamage);
         }
     }
 }

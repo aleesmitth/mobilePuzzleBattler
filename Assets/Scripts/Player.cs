@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.Design;
 using TMPro;
 using UnityEngine;
@@ -20,5 +21,9 @@ public class Player : MonoBehaviour {
         for (int i = 0; i < int.Parse(amount.text); i++) {
             deck.AddCard();
         }
+    }
+
+    public void PlayCards(Dictionary<NodeType,float> elementsDamage) {
+        hand.PlayCards(elementsDamage);
     }
 }
