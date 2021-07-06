@@ -9,15 +9,12 @@ using Random = UnityEngine.Random;
 public class NodeGrid : MonoBehaviour {
     public Vector3Value gridSize;
     public Vector3Value nodeSize;
-    public float normalNodeHeight;
-    public float selectedNodeHeight;
     public int newNodesOffset;
     private Node[][] grid;
     private Vector3[][] positionsGrid;
     private int xNodes;
     private int zNodes;
     private Node hoveredNode;
-    private GameObject hoveredNodeGO;
     private Camera mainCamera;
     private GameObject[][] gridGO; //the first [] are the col, second [] the rows. bottom left is 0,0
     private GameObject selectedNodeGO;
@@ -89,8 +86,9 @@ public class NodeGrid : MonoBehaviour {
         
         GetGridIndex(mousePosition, out var xIndex, out var zIndex);
         //resets previous selected node
-        if(hoveredNode != null)
+        if (hoveredNode != null)
             hoveredNode.isBeingHovered = false;
+
         //change state of which node is hovered by mouse position.
         hoveredNode = grid[xIndex][zIndex];
         hoveredNode.isBeingHovered = true;
@@ -124,18 +122,6 @@ public class NodeGrid : MonoBehaviour {
         }
         
         if (gridGO == null) return;
-        //restores previous hovered node height
-        if (hoveredNodeGO != null) {
-            var normalPosition = hoveredNodeGO.transform.position;
-            normalPosition.y = normalNodeHeight;
-            hoveredNodeGO.transform.position = normalPosition;
-        }
-        //ups the height of hovered node.
-        if (hoveredNodeGO == null) return;
-        hoveredNodeGO = gridGO[xIndex][zIndex];
-        var selectedPosition = hoveredNodeGO.transform.position;
-        selectedPosition.y = selectedNodeHeight;
-        hoveredNodeGO.transform.position = selectedPosition;
     }
 
     private void SwapGridNodes(int xIndex, int zIndex, Vector3 selectedNodePosition) {
