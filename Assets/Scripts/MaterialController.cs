@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MaterialController : MonoBehaviour {
-    public MeshRenderer mr;
-    public Material defaultMat;
-    public Material invisibleMat;
+    public SpriteRenderer sr;
+    public Sprite defaultSprite;
+    public Sprite invisibleSprite;
 
     public void MakeInvisible() {
-        mr.material = invisibleMat;
+        sr.sprite = invisibleSprite;
     }
 
     public void MakeVisible() {
-        mr.material = defaultMat;
+        sr.sprite = defaultSprite;
     }
 }

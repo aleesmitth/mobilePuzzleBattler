@@ -4,30 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FakeGravity : MonoBehaviour {
-    public Rigidbody rb;
-    public new Collider collider;
     public FloatValue nodeFallVelocity;
+    public Rigidbody2D rb;
     private Vector3 desiredPosition;
     private bool gravityOn = false;
     private void Start() {
         EventManager.onNewNodesSpawned += GravityOn;
         gravityOn = false;
-        rb.velocity = Vector3.zero;
-        collider.enabled = false;
     }
 
     private void OnEnable() {
         EventManager.onNewNodesSpawned += GravityOn;
         gravityOn = false;
-        rb.velocity = Vector3.zero;
-        collider.enabled = false;
     }
 
     private void OnDisable() {
         EventManager.onNewNodesSpawned -= GravityOn;
         gravityOn = false;
-        rb.velocity = Vector3.zero;
-        collider.enabled = false;
     }
 
     private void Update() {
@@ -35,13 +28,17 @@ public class FakeGravity : MonoBehaviour {
             GravityOn();
         if (Input.GetKeyDown(KeyCode.F))
             GravityOff();
-        if (gravityOn && transform.position.z <= desiredPosition.z)
+        if (gravityOn && transform.position.y <= desiredPosition.y)
             GravityOff();
     }
     private void FixedUpdate() {
-        if (gravityOn) {
-            rb.velocity = Vector3.back * nodeFallVelocity.value;
-        }
+        if (!gravityOn) return;
+        rb.velocity = Vector2.down * nodeFallVelocity.value;
+        /*
+        var transformBuffer = transform;
+        var currentPosition = transformBuffer.position;
+        currentPosition.y -= nodeFallVelocity.value;
+        transformBuffer.position = currentPosition;*/
     }
 
     public void SetDesiredPosition (Vector3 desiredPosition) {
@@ -50,14 +47,12 @@ public class FakeGravity : MonoBehaviour {
 
     private void GravityOn() {
         if (transform.position == desiredPosition) return;
-        collider.enabled = true;
         gravityOn = true;
     }
 
     private void GravityOff() {
         gravityOn = false;
-        rb.velocity = Vector3.zero;
-        collider.enabled = false;
         transform.position = desiredPosition;
+        rb.velocity = Vector2.zero;
     }
 }

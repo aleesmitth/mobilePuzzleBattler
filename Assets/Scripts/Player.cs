@@ -9,21 +9,13 @@ public class Player : MonoBehaviour {
     private Deck deck;
     public HandOfCards hand;
 
-    private void OnEnable() {
+    private void Start() {
         deck = new Deck();
+        deck.AddStartingHeros();
+        hand.UpdateActiveHeros(deck);
     }
 
-    public void Draw(int amount) {
-        hand.Draw(amount, deck);
-    }
-
-    public void AddCardsToDeck(TMP_InputField amount) {
-        for (int i = 0; i < int.Parse(amount.text); i++) {
-            deck.AddCard();
-        }
-    }
-
-    public void PlayCards(Dictionary<NodeType,float> elementsDamage) {
-        hand.PlayCards(elementsDamage);
+    public void Attack(Dictionary<NodeType,float> elementsDamage) {
+        hand.Attack(elementsDamage);
     }
 }

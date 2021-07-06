@@ -11,6 +11,9 @@ public class EventManager {
     public static event Action<int[]> onHitsProcessed;
     public static event Action onNewNodesSpawned;
     public static event Action<LinkedList<LinkedList<NodeType>>> onNodesDestroyed;
+    public static event Action<float> onAttackAllEnemies;
+    public static event Action<float> onAttackOneEnemy;
+    public static event Action<Enemy> onEnemyDefeated;
 
     public static void OnDeleteNode(Vector3 position, TextMeshProUGUI textMeshProUGUI) {
         onDeleteNode?.Invoke(position, textMeshProUGUI);
@@ -34,5 +37,17 @@ public class EventManager {
 
     public static void OnNodesDestroyed(LinkedList<LinkedList<NodeType>> hits) {
         onNodesDestroyed?.Invoke(hits);
+    }
+
+    public static void OnAttackAllEnemies(float damage) {
+        onAttackAllEnemies?.Invoke(damage);
+    }
+
+    public static void OnAttackOneEnemy(float damage) {
+        onAttackOneEnemy?.Invoke(damage);
+    }
+
+    public static void OnEnemyDefeated(Enemy enemy) {
+        onEnemyDefeated?.Invoke(enemy);
     }
 }

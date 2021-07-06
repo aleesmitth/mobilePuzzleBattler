@@ -6,7 +6,7 @@ using UnityEngine;
 public class BarrierShowNodes : MonoBehaviour {
     public Vector3Value gridSize;
     public GameObject prefab;
-    public MeshRenderer mr;
+    public SpriteRenderer sr;
     
     private void OnEnable() {
         SpawnLowerBarrier();
@@ -20,13 +20,13 @@ public class BarrierShowNodes : MonoBehaviour {
         GameObject barrier = Instantiate(prefab);
         var position = transform.position;
         var barrierPosition = position;
-        var bounds = mr.bounds;
-        barrierPosition.z = (gridSize.value.z + bounds.size.z) / 2;
-        barrierPosition.y = 0;
+        var size = sr.bounds.extents * 2;
+        barrierPosition.y = (gridSize.value.y + size.y) / 2;
+        barrierPosition.z = 0;
         barrier.transform.position = barrierPosition;
 
         var scale = barrier.transform.localScale;
-        scale.x = gridSize.value.x / bounds.size.x; 
+        scale.x = gridSize.value.x / size.x; 
         barrier.transform.localScale = scale;
     }
 }

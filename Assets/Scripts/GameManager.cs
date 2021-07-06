@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
     public NodeGrid grid;
-    public Material hitNodeMat;
+    public Sprite hitNodeSprite;
     public Player player;
     public FloatValue handSize;
     private void Awake() {
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour {
             var hits = grid.GetMatrixHits();
             foreach (var listOfHits in hits) {
                 foreach (var hit in listOfHits) {
-                    hit.GetComponent<MeshRenderer>().material = hitNodeMat;
+                    hit.GetComponent<SpriteRenderer>().sprite = hitNodeSprite;
                 }
             }
         }
@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour {
         }
         //aca deberia mandarle al player los elementsDamage, y cada carta va a saber si su elemento esta
         //y como actuar.
-        player.PlayCards(elementsDamage);
+        player.Attack(elementsDamage);
     }
 
     private Dictionary<NodeType, float> ApplyCombo(float comboBonus, Dictionary<NodeType,float> elementsDamage) {
@@ -91,13 +91,5 @@ public class GameManager : MonoBehaviour {
         }
 
         return updatedElementsDamage;
-    }
-
-    public void AddCardsToDeck(TMP_InputField inputNumber) {
-        player.AddCardsToDeck(inputNumber);
-    }
-
-    public void Draw() {
-        player.Draw((int)handSize.value);
     }
 }

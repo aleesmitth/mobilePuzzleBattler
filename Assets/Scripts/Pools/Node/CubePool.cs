@@ -7,8 +7,6 @@ public class CubePool : NodePool {
     public Transform parent;
     public int growthSize;
     public static CubePool instance;
-    [SerializeField]
-    public Material defaultMaterial;
     private Queue<GameObject> queue = new Queue<GameObject>();
     
     private void Awake() {
@@ -26,6 +24,5 @@ public class CubePool : NodePool {
     public override GameObject Prefab { get => prefab; set => prefab = value; }
     public override Transform Parent { get => parent; set => parent = value; }
     public override int GrowthSize { get => growthSize; set => growthSize = value; }
-    public override Material DefaultMaterial { get => defaultMaterial; set => defaultMaterial = value; }
     protected override Queue<GameObject> Queue { get => queue; set => queue = value; }
 }
