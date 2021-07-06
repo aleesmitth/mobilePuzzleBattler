@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e2b423a7d120564db795c59f6c6bc51, type: 3}
-  m_Name: CardSizeZ
+  m_Name: SpaceBetweenCards
   m_EditorClassIdentifier: 
-  value: 8
+  value: 0

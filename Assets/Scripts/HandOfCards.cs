@@ -4,15 +4,17 @@ using UnityEngine;
 public class HandOfCards : MonoBehaviour {
     private LinkedList<Card> cards;
     public Vector3Value gridSize;
-    public FloatValue cardSize;
+    public FloatValue porcentageSpaceBetweenCards;
     //4 cards fixed size of hand, to not make it dynamic because it's much more complicated.
     public FloatValue handSize;
     private GameObject[] cardsGO;
 
     private void OnEnable() {
-        var spaceBetweenCards = .5f;
+        //check if cards haven enough space to be placed
+        if (porcentageSpaceBetweenCards.value >= 1 / handSize.value)
+            porcentageSpaceBetweenCards.value = .1f; //default to .1 offset
         cardsGO = new GameObject[(int)handSize.value];
-        float cardSizeX = gridSize.value.x / handSize.value;
+        float cardSizeX = (gridSize.value.x - (porcentageSpaceBetweenCards.value * gridSize.value.x * (handSize.value - 1))) / handSize.value;
         for (int i = 0; i < handSize.value; i++) {
             cardsGO[i] = CardsPool.instance.Get();
             var position = cardsGO[i].transform.position;
@@ -20,11 +22,12 @@ public class HandOfCards : MonoBehaviour {
             var bounds = mr.bounds;
             
             var scale = cardsGO[i].transform.localScale;
+            //i scale it to be a square
             scale.x = cardSizeX / bounds.size.x;
-            scale.z = cardSize.value / bounds.size.z;
+            scale.z = cardSizeX / bounds.size.z;
             cardsGO[i].transform.localScale = scale;
             
-            position.x = (- gridSize.value.x + cardSizeX) / 2 + i * cardSizeX + i * spaceBetweenCards;
+            position.x = (- gridSize.value.x + cardSizeX) / 2 + i * cardSizeX + i * porcentageSpaceBetweenCards.value * gridSize.value.x;
             position.z = (gridSize.value.z + bounds.size.z * scale.z) / 2;
             position.y = 0;
             cardsGO[i].transform.position = position;
