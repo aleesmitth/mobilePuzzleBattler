@@ -34,7 +34,7 @@ public class HandOfCards : MonoBehaviour {
             
             position.x = (- gridSize.value.x + cardSizeX) / 2 + i * cardSizeX + i * porcentageSpaceBetweenCards.value * gridSize.value.x;
             position.y = (gridSize.value.y + sizeOfSprite.y * scale.y) / 2;
-            position.z = -2f;
+            position.z = 0;
             herosGO[i].transform.position = position;
         }
     }

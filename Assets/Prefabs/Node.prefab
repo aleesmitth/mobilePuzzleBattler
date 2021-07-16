@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeFallVelocity: {fileID: 11400000, guid: fbe617a879cb18b438ab6a583bd6475b, type: 2}
   rb: {fileID: 2525097878286213138}
+  materialController: {fileID: 1022188254989119195}
 --- !u!114 &-5595107924295712092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,7 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 5284917209595095381}
   defaultSprite: {fileID: 21300000, guid: 2d90ecc72a11d6e40849a43a30a2694a, type: 3}
-  invisibleSprite: {fileID: 21300000, guid: 2d90ecc72a11d6e40849a43a30a2694a, type: 3}
+  invisibleSprite: {fileID: 21300000, guid: 04753b62909989549aecbafea65983a3, type: 3}
 --- !u!212 &5284917209595095381
 SpriteRenderer:
   m_ObjectHideFlags: 0

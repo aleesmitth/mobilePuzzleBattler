@@ -203,6 +203,7 @@ public class NodeGrid : MonoBehaviour {
             }
         }
     }
+    
     public LinkedList<LinkedList<GameObject>> LookForMatrixHits() {
         LinkedList<LinkedList<GameObject>> listOfHits = new LinkedList<LinkedList<GameObject>>();
         int[] hitsPerColumn = new int[grid.Length];

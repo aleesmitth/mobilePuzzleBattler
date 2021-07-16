@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
     public NodeGrid grid;
+    private InventorGrid2D inventoryGrid;
+    private bool inInventory;
     public Sprite hitNodeSprite;
     public Player player;
     public FloatValue handSize;
@@ -20,13 +23,27 @@ public class GameManager : MonoBehaviour {
     }
 
     private void OnEnable() {
+        inInventory = false;
+        SceneManager.sceneLoaded += OnSceneLoaded;
         EventManager.onNodesDestroyed += ProcessDestroyedNodes;
+    }
+    
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        if (scene.name == "Inventory") {
+            inventoryGrid = GameObject.FindWithTag("Grid").GetComponent<InventorGrid2D>();
+            inInventory = true;
+        }
     }
     
     //TODO theres a bug if i press S -> A -> S the game breaks, it's because A is mostly for debugging.
     //TODO i'm not sure why it happens but for now it's not worth looking into, A will be removed, it's just for show
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
+            if (inInventory) {
+                Debug.Log(GameObject.FindWithTag("Grid").GetComponent<InventorGrid2D>());
+                inventoryGrid.ResetGrid();
+                return;
+            }
             grid.ResetGrid();
         }
 
@@ -42,6 +59,10 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.S)) {
             var hits = grid.LookForMatrixHits();
             grid.DestroyHitNodes(hits);
+        }
+
+        if (Input.GetKeyUp(KeyCode.I)) {
+            SceneManager.LoadScene("Scenes/Inventory", LoadSceneMode.Single);
         }
     }
     

@@ -6,6 +6,7 @@ using UnityEngine;
 public class FakeGravity : MonoBehaviour {
     public FloatValue nodeFallVelocity;
     public Rigidbody2D rb;
+    public MaterialController materialController;
     private Vector3 desiredPosition;
     private bool gravityOn = false;
     private void Start() {
@@ -54,5 +55,6 @@ public class FakeGravity : MonoBehaviour {
         gravityOn = false;
         transform.position = desiredPosition;
         rb.velocity = Vector2.zero;
+        materialController.MakeVisible();
     }
 }
