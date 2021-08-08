@@ -146,18 +146,21 @@ public class NodeGrid : MonoBehaviour {
     }
 
     private void CreateGrid() {
+        //checking how many nodes fit in each axis
         xNodes = Mathf.FloorToInt(gridSize.value.x / nodeSize.value.x);
         yNodes = Mathf.FloorToInt(gridSize.value.y / nodeSize.value.y);
+        //creating matrices to store nodes and positions, storing positiosn so i don't have to access the transform
         grid = new Node[xNodes][];
         positionsGrid = new Vector3[xNodes][];
         for (int i = 0; i < grid.Length; i++) {
             grid[i] = new Node[yNodes];
             positionsGrid[i] = new Vector3[yNodes];
+            //positioning nodes next to each other
             for (int j = 0; j < grid[i].Length; j++) {
-                var nodePosition = new Vector3
-                                   (i * nodeSize.value.x + nodeSize.value.x / 2,
-                                       j * nodeSize.value.y + nodeSize.value.y / 2, 0) -
-                                   gridSize.value / 2;
+                var nodePosition = new Vector3(
+                                       i * nodeSize.value.x + nodeSize.value.x / 2,
+                                       j * nodeSize.value.y + nodeSize.value.y / 2, 0) - gridSize.value / 2;
+                //storeing new node, nodePosition is not needed for creating the node, may delete later.
                 grid[i][j] = new Node(nodePosition);
                 positionsGrid[i][j] = nodePosition;
             }
@@ -179,12 +182,14 @@ public class NodeGrid : MonoBehaviour {
     }
 
     public void ResetGrid() {
+        //first time populating the grid
         if (gridGO == null) {
             gridGO = new GameObject[xNodes][];
             for (int i = 0; i < gridGO.Length; i++) {
                 gridGO[i] = new GameObject[yNodes];
             }
         }
+        //destroying the populated grid
         else {
             for (int i = 0; i < gridGO.Length; i++) {
                 for (int j = 0; j < gridGO[i].Length; j++) {
@@ -192,14 +197,13 @@ public class NodeGrid : MonoBehaviour {
                 }
             }
         }
-
+        //instatiating prefabs and moving them to right position
         for (int i = 0; i < gridGO.Length; i++) {
             for (int j = 0; j < gridGO[i].Length; j++) {
                 grid[i][j].ResetNodeType();
                 gridGO[i][j] = PoolManager.Get(grid[i][j].nodeType);
                 gridGO[i][j].GetComponent<MaterialController>().MakeVisible();
                 gridGO[i][j].transform.position = grid[i][j].position;
-                gridGO[i][j].GetComponent<FakeGravity>().SetDesiredPosition(grid[i][j].position);
             }
         }
     }

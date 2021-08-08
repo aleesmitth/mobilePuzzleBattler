@@ -42,8 +42,6 @@ public class InventorGrid2D : MonoBehaviour {
         foreach (var row in grid) {
             foreach (var node in row) {
                 Gizmos.color = Color.cyan;
-                if(node.isBeingHovered)
-                    Gizmos.color = Color.yellow;
                 Gizmos.DrawWireCube(node.position, nodeSize.value);
             }
         }
