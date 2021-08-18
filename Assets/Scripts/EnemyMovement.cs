@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
-public class WalkingEnemy : MonoBehaviour {
+public class EnemyMovement : MonoBehaviour {
     public float speed;
     public float chanceToWalk;
     public float minSecondsSleep;
@@ -22,7 +22,7 @@ public class WalkingEnemy : MonoBehaviour {
     private Vector3 moveTowards;
     private bool startMoving;
 
-    public void SetEnemyData(/*List<Vector2Int> occupiedTiles, */Tilemap groundTilemap, Tilemap collisionTilemap) {
+    public void SetEnemyTilemap(/*List<Vector2Int> occupiedTiles, */Tilemap groundTilemap, Tilemap collisionTilemap) {
         //this.occupiedTilePositions = occupiedTiles;
         this.groundTilemap = groundTilemap;
 

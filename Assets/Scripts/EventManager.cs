@@ -15,6 +15,7 @@ public class EventManager {
     public static event Action<float> onAttackOneEnemy;
     public static event Action<Enemy> onEnemyDefeated;
     public static event Action onItemSelected;
+    public static event Action<EnemyData> onCollisionWithEnemy;
 
     public static void OnDeleteNode(Vector3 position, TextMeshProUGUI textMeshProUGUI) {
         onDeleteNode?.Invoke(position, textMeshProUGUI);
@@ -54,5 +55,9 @@ public class EventManager {
 
     public static void OnItemSelected() {
         onItemSelected?.Invoke();
+    }
+
+    public static void OnCollisionWithEnemy(EnemyData enemyData) {
+        onCollisionWithEnemy?.Invoke(enemyData);
     }
 }

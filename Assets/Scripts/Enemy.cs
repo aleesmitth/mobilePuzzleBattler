@@ -25,4 +25,8 @@ public class Enemy : MonoBehaviour {
     public float CurrentHealth() {
         return health;
     }
+
+    public void LoadEnemyData(EnemyData enemyData) {
+        transform.GetComponent<SpriteRenderer>().sprite = enemyData.sprite;
+    }
 }

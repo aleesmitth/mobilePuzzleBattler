@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour {
     public Sprite hitNodeSprite;
     public Player player;
     public FloatValue handSize;
+    private EnemyData fightingEnemyData;
+    private bool inMap;
+
     private void Awake() {
         if (instance == null) {
             instance = this;
@@ -23,27 +26,55 @@ public class GameManager : MonoBehaviour {
     }
 
     private void OnEnable() {
+        inMap = true;
         inInventory = false;
         SceneManager.sceneLoaded += OnSceneLoaded;
         EventManager.onNodesDestroyed += ProcessDestroyedNodes;
+        EventManager.onCollisionWithEnemy += LoadFightScene;
     }
-    
+
+    private void LoadFightScene(EnemyData enemyData) {
+        //placeholder to load scene
+        SceneManager.LoadScene("Scenes/Fight", LoadSceneMode.Single);
+        this.fightingEnemyData = enemyData;
+    }
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         if (scene.name == "Inventory") {
             inventoryGrid = GameObject.FindWithTag("Grid").GetComponent<InventorGrid2D>();
             inInventory = true;
+        } else if (scene.name == "Fight") {
+            //TODO this is so hardcoded, need to refactor the game manager and delete this find with tag stuff
+            //TODO also refactor player, because i'm having 2 player objects with different behaviour one in each scene
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (var enemy in enemies) {
+                enemy.GetComponent<Enemy>().LoadEnemyData(fightingEnemyData);
+            }
+
+            this.player = GameObject.FindWithTag("Player").GetComponent<Player>();
+            this.grid = GameObject.FindWithTag("Grid").GetComponent<NodeGrid>();
+            inMap = false;
         }
     }
     
     //TODO theres a bug if i press S -> A -> S the game breaks, it's because A is mostly for debugging.
     //TODO i'm not sure why it happens but for now it's not worth looking into, A will be removed, it's just for show
     private void Update() {
+        //placeholder to open inventory
+        if (Input.GetKeyUp(KeyCode.I)) {
+            SceneManager.LoadScene("Scenes/Inventory", LoadSceneMode.Single);
+        }
+
+        if (this.inMap) return;
+        print("adSDASDasdd");
+        
         if (Input.GetKeyDown(KeyCode.Space)) {
             if (inInventory) {
                 Debug.Log(GameObject.FindWithTag("Grid").GetComponent<InventorGrid2D>());
                 inventoryGrid.ResetGrid();
                 return;
             }
+            print("adSDASDasdd");
             grid.ResetGrid();
         }
 
@@ -59,10 +90,6 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.S)) {
             var hits = grid.LookForMatrixHits();
             grid.DestroyHitNodes(hits);
-        }
-
-        if (Input.GetKeyUp(KeyCode.I)) {
-            SceneManager.LoadScene("Scenes/Inventory", LoadSceneMode.Single);
         }
     }
     

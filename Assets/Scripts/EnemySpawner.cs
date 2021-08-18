@@ -9,6 +9,10 @@ public class EnemySpawner : MonoBehaviour {
     public Tilemap groundTilemap;
     public Tilemap collisionTilemap;
     public int maxEnemies;
+    [Space]
+    [Header("Data of enemies to encounter in this area")]
+    [Space]
+    public EnemyData[] allPossibleEnemies;
     //private List<Vector2Int> occupiedTilePositions;
     private int activeEnemies;
 
@@ -35,7 +39,8 @@ public class EnemySpawner : MonoBehaviour {
         var worldPosition = groundTilemap.layoutGrid.CellToWorld((Vector3Int) randomGridPosition);
         worldPosition.x += .5f; //offset because of celltoworld error
         enemyInstace.transform.position = worldPosition;
-        enemyInstace.GetComponent<WalkingEnemy>().SetEnemyData(/*occupiedTilePositions, */groundTilemap, collisionTilemap);
+        enemyInstace.GetComponent<EnemyMovement>().SetEnemyTilemap(/*occupiedTilePositions, */groundTilemap, collisionTilemap);
+        enemyInstace.GetComponent<FightStarter>().LoadEnemyData(allPossibleEnemies[Random.Range(0,allPossibleEnemies.Length)]);
     }
 
     private Vector2Int GetRandomGridPosition() {
