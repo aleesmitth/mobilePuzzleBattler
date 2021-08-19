@@ -6,19 +6,19 @@ using UnityEngine;
 public class FixMySize : MonoBehaviour {
     public Vector3Value nodeSize;
     public SpriteRenderer sr;
-    public FloatValue nodeMargin;
+    public FloatValue nodeScale;
 
     private void Start() {
         FixSize();
     }
     
     /*i make the sprite smaller, if i run this again i go back to the original size.*/
-    private void FixSize() {
+    public void FixSize() {
         var transform1 = transform;
         var scale = transform1.localScale;
         var sizeOfSprite = sr.bounds.extents * 2; 
-        scale.x = nodeMargin.value * nodeSize.value.x / sizeOfSprite.x;
-        scale.y = nodeMargin.value * nodeSize.value.y / sizeOfSprite.y;
+        scale.x = nodeScale.value * nodeSize.value.x / sizeOfSprite.x;
+        scale.y = nodeScale.value * nodeSize.value.y / sizeOfSprite.y;
         transform1.localScale = scale;
     }
 }

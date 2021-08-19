@@ -40,7 +40,7 @@ public class NodeGrid : MonoBehaviour {
                     newNodesOffset + (j + grid[i].Length) * nodeSize.value.y + nodeSize.value.y/2 + j,
                     0) - gridSize.value / 2);
                 GameObject nodeGO = default;
-                nodeGO = PoolManager.Get(node.nodeType);
+                nodeGO = PoolManager.Get(node.elementType);
                 nodeGO.GetComponent<MaterialController>().MakeInvisible();
                 nodeGO.transform.position = node.position;
                 //nodeGO.transform.localScale = new Vector3(nodeSize.value.x / 2, 1, nodeSize.value.z / 2);
@@ -193,7 +193,7 @@ public class NodeGrid : MonoBehaviour {
         else {
             for (int i = 0; i < gridGO.Length; i++) {
                 for (int j = 0; j < gridGO[i].Length; j++) {
-                    PoolManager.Destroy(grid[i][j].nodeType, gridGO[i][j]);
+                    PoolManager.Destroy(grid[i][j].elementType, gridGO[i][j]);
                 }
             }
         }
@@ -201,7 +201,7 @@ public class NodeGrid : MonoBehaviour {
         for (int i = 0; i < gridGO.Length; i++) {
             for (int j = 0; j < gridGO[i].Length; j++) {
                 grid[i][j].ResetNodeType();
-                gridGO[i][j] = PoolManager.Get(grid[i][j].nodeType);
+                gridGO[i][j] = PoolManager.Get(grid[i][j].elementType);
                 gridGO[i][j].GetComponent<MaterialController>().MakeVisible();
                 gridGO[i][j].transform.position = grid[i][j].position;
             }
@@ -212,7 +212,7 @@ public class NodeGrid : MonoBehaviour {
         LinkedList<LinkedList<GameObject>> listOfHits = new LinkedList<LinkedList<GameObject>>();
         int[] hitsPerColumn = new int[grid.Length];
 
-        LinkedList<LinkedList<NodeType>> listsOfElementsHit = new LinkedList<LinkedList<NodeType>>();
+        LinkedList<LinkedList<ElementType>> listsOfElementsHit = new LinkedList<LinkedList<ElementType>>();
         var listsOfColumnElementsHit = LookForVerticalHits(listOfHits, hitsPerColumn);
         var listsOfRowElementsHit = LookForHorizontalHits(listOfHits, hitsPerColumn);
 
@@ -231,16 +231,16 @@ public class NodeGrid : MonoBehaviour {
         return listOfHits;
     }
 
-    private LinkedList<LinkedList<NodeType>> LookForHorizontalHits(LinkedList<LinkedList<GameObject>> listOfHits, int[] hitsPerColumn) {
-        var listsOfElementsHit = new LinkedList<LinkedList<NodeType>>();
+    private LinkedList<LinkedList<ElementType>> LookForHorizontalHits(LinkedList<LinkedList<GameObject>> listOfHits, int[] hitsPerColumn) {
+        var listsOfElementsHit = new LinkedList<LinkedList<ElementType>>();
         for (int i = 0; i < grid[0].Length; i++) {
-            var currentType = grid[0][i].nodeType;
+            var currentType = grid[0][i].elementType;
             int countInARow = 0;
             for (int j = 0; j < grid.Length; j++) {
-                if (currentType == grid[j][i].nodeType) countInARow++;
+                if (currentType == grid[j][i].elementType) countInARow++;
                 else {
                     if (countInARow >= 3) {
-                        listsOfElementsHit.AddFirst(new LinkedList<NodeType>());
+                        listsOfElementsHit.AddFirst(new LinkedList<ElementType>());
                         listOfHits.AddFirst(new LinkedList<GameObject>());
                         for (; countInARow > 0; countInARow--) {
                             bool alreadyInList = false;
@@ -258,12 +258,12 @@ public class NodeGrid : MonoBehaviour {
                     }
 
                     countInARow = 1;
-                    currentType = grid[j][i].nodeType;
+                    currentType = grid[j][i].elementType;
                 }
             }
             
             if (countInARow < 3) continue;
-            listsOfElementsHit.AddFirst(new LinkedList<NodeType>());
+            listsOfElementsHit.AddFirst(new LinkedList<ElementType>());
             listOfHits.AddFirst(new LinkedList<GameObject>());
             for (; countInARow > 0; countInARow--) {
                 bool alreadyInList = false;
@@ -283,16 +283,16 @@ public class NodeGrid : MonoBehaviour {
         return listsOfElementsHit;
     }
 
-    private LinkedList<LinkedList<NodeType>> LookForVerticalHits(LinkedList<LinkedList<GameObject>> listOfHits, int[] hitsPerColumn) {
-        var listsOfElementsHit = new LinkedList<LinkedList<NodeType>>();
+    private LinkedList<LinkedList<ElementType>> LookForVerticalHits(LinkedList<LinkedList<GameObject>> listOfHits, int[] hitsPerColumn) {
+        var listsOfElementsHit = new LinkedList<LinkedList<ElementType>>();
         for (int i = 0; i < grid.Length; i++) {
-            var currentType = grid[i][0].nodeType;
+            var currentType = grid[i][0].elementType;
             int countInARow = 0;
             for (int j = 0; j < grid[i].Length; j++) {
-                if (currentType == grid[i][j].nodeType) countInARow++;
+                if (currentType == grid[i][j].elementType) countInARow++;
                 else {
                     if (countInARow >= 3) {
-                        listsOfElementsHit.AddFirst(new LinkedList<NodeType>());
+                        listsOfElementsHit.AddFirst(new LinkedList<ElementType>());
                         listOfHits.AddFirst(new LinkedList<GameObject>());
                         for (; countInARow > 0; countInARow--) {
                             bool alreadyInList = false;
@@ -309,12 +309,12 @@ public class NodeGrid : MonoBehaviour {
                     }
 
                     countInARow = 1;
-                    currentType = grid[i][j].nodeType;
+                    currentType = grid[i][j].elementType;
                 }
             }
 
             if (countInARow < 3) continue;
-            listsOfElementsHit.AddFirst(new LinkedList<NodeType>());
+            listsOfElementsHit.AddFirst(new LinkedList<ElementType>());
             listOfHits.AddFirst(new LinkedList<GameObject>());
             for (; countInARow > 0; countInARow--) {
                 bool alreadyInList = false;

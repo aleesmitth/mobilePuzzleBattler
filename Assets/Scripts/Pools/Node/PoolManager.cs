@@ -1,29 +1,29 @@
 ﻿using UnityEngine;
 
 internal static class PoolManager {
-    public static GameObject Get(NodeType nodeType) {
-        switch (nodeType) {
-            case NodeType.Cube: return CubePool.instance.Get();
-            case NodeType.Sphere: return SpherePool.instance.Get();
-            case NodeType.Cylinder: return CylinderPool.instance.Get();
-            case NodeType.Capsule: return CapsulePool.instance.Get();
+    public static GameObject Get(ElementType elementType) {
+        switch (elementType) {
+            case ElementType.FIRE: return FirePool.instance.Get();
+            case ElementType.WATER: return WaterPool.instance.Get();
+            case ElementType.EARTH: return EarthPool.instance.Get();
+            case ElementType.AIR: return AirPool.instance.Get();
             default:
-                return CubePool.instance.Get();
+                return FirePool.instance.Get();
         }
     }
 
-    public static void Destroy(NodeType nodeType, GameObject gameObject) {
-        switch (nodeType) {
-            case NodeType.Cube: CubePool.instance.DestroyObject(gameObject);
+    public static void Destroy(ElementType elementType, GameObject gameObject) {
+        switch (elementType) {
+            case ElementType.FIRE: FirePool.instance.DestroyObject(gameObject);
                 break;
-            case NodeType.Sphere: SpherePool.instance.DestroyObject(gameObject);
+            case ElementType.WATER: WaterPool.instance.DestroyObject(gameObject);
                 break;
-            case NodeType.Cylinder: CylinderPool.instance.DestroyObject(gameObject);
+            case ElementType.EARTH: EarthPool.instance.DestroyObject(gameObject);
                 break;
-            case NodeType.Capsule: CapsulePool.instance.DestroyObject(gameObject);
+            case ElementType.AIR: AirPool.instance.DestroyObject(gameObject);
                 break;
             default:
-                CubePool.instance.DestroyObject(gameObject);
+                FirePool.instance.DestroyObject(gameObject);
                 break;
         }
     }

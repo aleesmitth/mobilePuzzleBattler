@@ -7,11 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
+    public Player player;
     public NodeGrid grid;
     private InventorGrid2D inventoryGrid;
     private bool inInventory;
     public Sprite hitNodeSprite;
-    public Player player;
+    public FightingHeros fightingHeros;
     public FloatValue handSize;
     private EnemyData fightingEnemyData;
     private bool inMap;
@@ -51,7 +52,10 @@ public class GameManager : MonoBehaviour {
                 enemy.GetComponent<Enemy>().LoadEnemyData(fightingEnemyData);
             }
 
-            this.player = GameObject.FindWithTag("Player").GetComponent<Player>();
+
+            this.fightingHeros = GameObject.FindWithTag("Heros").GetComponent<FightingHeros>();
+            var heros = player.GetHeros();
+            this.fightingHeros.LoadHeros(heros);
             this.grid = GameObject.FindWithTag("Grid").GetComponent<NodeGrid>();
             inMap = false;
         }
@@ -66,7 +70,6 @@ public class GameManager : MonoBehaviour {
         }
 
         if (this.inMap) return;
-        print("adSDASDasdd");
         
         if (Input.GetKeyDown(KeyCode.Space)) {
             if (inInventory) {
@@ -74,7 +77,6 @@ public class GameManager : MonoBehaviour {
                 inventoryGrid.ResetGrid();
                 return;
             }
-            print("adSDASDasdd");
             grid.ResetGrid();
         }
 
@@ -99,10 +101,10 @@ public class GameManager : MonoBehaviour {
     //so i could do like
     //Combo points = 1 + numberOfLists * 0.1f (this would give me 10% bonus increase per line hit.
     //elementDamage = NodesOfElement * Combo points
-    private void ProcessDestroyedNodes(LinkedList<LinkedList<NodeType>> listsOfElementsHit) {
+    private void ProcessDestroyedNodes(LinkedList<LinkedList<ElementType>> listsOfElementsHit) {
         float comboBonus = 1 + listsOfElementsHit.Count * .1f;
-        Dictionary<NodeType, float> elementsDamage = new Dictionary<NodeType, float>();
-        foreach (NodeType element in Enum.GetValues(typeof(NodeType))) {
+        Dictionary<ElementType, float> elementsDamage = new Dictionary<ElementType, float>();
+        foreach (ElementType element in Enum.GetValues(typeof(ElementType))) {
             elementsDamage.Add(element,0);
         }
 
@@ -128,11 +130,11 @@ public class GameManager : MonoBehaviour {
         }
         //aca deberia mandarle al player los elementsDamage, y cada carta va a saber si su elemento esta
         //y como actuar.
-        player.Attack(elementsDamage);
+        fightingHeros.Attack(elementsDamage);
     }
 
-    private Dictionary<NodeType, float> ApplyCombo(float comboBonus, Dictionary<NodeType,float> elementsDamage) {
-        Dictionary<NodeType, float> updatedElementsDamage = new Dictionary<NodeType, float>();
+    private Dictionary<ElementType, float> ApplyCombo(float comboBonus, Dictionary<ElementType,float> elementsDamage) {
+        Dictionary<ElementType, float> updatedElementsDamage = new Dictionary<ElementType, float>();
         foreach (var element in elementsDamage) {
             var damage = element.Value * comboBonus;
             updatedElementsDamage.Add(element.Key, damage);

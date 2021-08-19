@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1803129879246029645
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 134734691919272787, guid: b54912d911613df4fbafe2be12c47fa7,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 134734691919272787, guid: b54912d911613df4fbafe2be12c47fa7,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022188254989119195, guid: b54912d911613df4fbafe2be12c47fa7,
+        type: 3}
+      propertyPath: defaultMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b5a2f48b152e604aa4015815bf66ac1, type: 2}
+    - target: {fileID: 1022188254989119195, guid: b54912d911613df4fbafe2be12c47fa7,
+        type: 3}
+      propertyPath: defaultSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b21b3f609bbc8cd41b08df6e79d0de2d,
+        type: 3}
+    - target: {fileID: 1406466256235340354, guid: b54912d911613df4fbafe2be12c47fa7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1406466256235340354, guid: b54912d911613df4fbafe2be12c47fa7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1406466256235340354, guid: b54912d911613df4fbafe2be12c47fa7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1406466256235340354, guid: b54912d911613df4fbafe2be12c47fa7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1406466256235340354, guid: b54912d911613df4fbafe2be12c47fa7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1406466256235340354, guid: b54912d911613df4fbafe2be12c47fa7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1406466256235340354, guid: b54912d911613df4fbafe2be12c47fa7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1406466256235340354, guid: b54912d911613df4fbafe2be12c47fa7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1406466256235340354, guid: b54912d911613df4fbafe2be12c47fa7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1406466256235340354, guid: b54912d911613df4fbafe2be12c47fa7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1406466256235340354, guid: b54912d911613df4fbafe2be12c47fa7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284917209595095381, guid: b54912d911613df4fbafe2be12c47fa7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b21b3f609bbc8cd41b08df6e79d0de2d,
+        type: 3}
+    - target: {fileID: 7497862720403292795, guid: b54912d911613df4fbafe2be12c47fa7,
+        type: 3}
+      propertyPath: m_Name
+      value: Earth
+      objectReference: {fileID: 0}
+    - target: {fileID: 9106220718161960900, guid: b54912d911613df4fbafe2be12c47fa7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b5a2f48b152e604aa4015815bf66ac1, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b54912d911613df4fbafe2be12c47fa7, type: 3}

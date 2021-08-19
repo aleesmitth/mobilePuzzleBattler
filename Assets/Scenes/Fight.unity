@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 128563220}
   - component: {fileID: 128563221}
   m_Layer: 0
-  m_Name: CylinderPool
+  m_Name: EarthPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836ff5e6ff79a384fb415b1df8b5bb18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5043142529294295196, guid: f917ded7777e09d4794685681a4c6e27, type: 3}
+  prefab: {fileID: 8145819276965708086, guid: e6467380f2d73794f8d851a46ecd7b17, type: 3}
   parent: {fileID: 128563220}
   growthSize: 5
 --- !u!1 &162999771
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 162999773}
   - component: {fileID: 162999772}
   m_Layer: 0
-  m_Name: SpherePool
+  m_Name: WaterPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfd8b8cacbed8d54eb5987f34d5cd8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4492532404354005061, guid: 52d4cb3210f49f449bf9a9937a50ff46, type: 3}
+  prefab: {fileID: 5043142529294295196, guid: f917ded7777e09d4794685681a4c6e27, type: 3}
   parent: {fileID: 162999773}
   growthSize: 5
 --- !u!4 &162999773
@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 345525694}
   - component: {fileID: 345525696}
   - component: {fileID: 345525695}
+  - component: {fileID: 345525697}
   m_Layer: 0
   m_Name: Enemigo2
   m_TagString: Enemy
@@ -311,6 +312,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 25
+--- !u!114 &345525697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345525693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea174bb1cd8ab446a1d22864a4af6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeSize: {fileID: 11400000, guid: 85758eff758acf54bbe137296b72122b, type: 2}
+  sr: {fileID: 345525695}
+  nodeScale: {fileID: 11400000, guid: b7a9f6d77d010cb40ab56ee03aa0314f, type: 2}
 --- !u!1 &459441035
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,11 +780,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 914385852}
-  - component: {fileID: 914385851}
   - component: {fileID: 914385853}
+  - component: {fileID: 914385851}
   m_Layer: 0
-  m_Name: Player
-  m_TagString: Player
+  m_Name: Heros
+  m_TagString: Heros
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -782,10 +798,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 914385850}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 113c0a6ce66cf694aac506c28e915713, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cacc3d96cac4373b766c53aaf2e74b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: {fileID: 1187407259}
+  gridSize: {fileID: 11400000, guid: c39e933e517772c438d8187a7f7333b6, type: 2}
+  porcentageSpaceBetweenCards: {fileID: 11400000, guid: 2717a1c570220954390e3ab0faf42f0b,
+    type: 2}
+  handSize: {fileID: 11400000, guid: 220101968a71802448ce2630e18fcc69, type: 2}
 --- !u!4 &914385852
 Transform:
   m_ObjectHideFlags: 0
@@ -796,8 +815,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1187407260}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -828,6 +846,7 @@ GameObject:
   - component: {fileID: 945583480}
   - component: {fileID: 945583482}
   - component: {fileID: 945583481}
+  - component: {fileID: 945583483}
   m_Layer: 0
   m_Name: Enemigo1
   m_TagString: Enemy
@@ -913,6 +932,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 25
+--- !u!114 &945583483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945583479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea174bb1cd8ab446a1d22864a4af6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeSize: {fileID: 11400000, guid: 85758eff758acf54bbe137296b72122b, type: 2}
+  sr: {fileID: 945583481}
+  nodeScale: {fileID: 11400000, guid: b7a9f6d77d010cb40ab56ee03aa0314f, type: 2}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,7 +1140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f665a32c7be2bf244bbd2c3a820d7acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7645663188249502344, guid: 2a0630ff90505aa41ab680d579d0a7c8, type: 3}
+  prefab: {fileID: 8354898568930791774, guid: 2a0630ff90505aa41ab680d579d0a7c8, type: 3}
   parent: {fileID: 1059547237}
   growthSize: 4
 --- !u!4 &1059547237
@@ -1134,7 +1168,7 @@ GameObject:
   - component: {fileID: 1096940191}
   - component: {fileID: 1096940192}
   m_Layer: 0
-  m_Name: CapsulePool
+  m_Name: AirPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1166,7 +1200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2658e147720ea4cb8a6770be62b4ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8145819276965708086, guid: e6467380f2d73794f8d851a46ecd7b17, type: 3}
+  prefab: {fileID: 148369060039648656, guid: 5ffd32bc1a1b83a45a01b2ea4c79d12e, type: 3}
   parent: {fileID: 1096940191}
   growthSize: 5
 --- !u!1 &1137731028
@@ -1235,53 +1269,6 @@ Transform:
   - {fileID: 1371278244}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1187407258
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1187407260}
-  - component: {fileID: 1187407259}
-  m_Layer: 0
-  m_Name: HandOfCards
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1187407259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187407258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cacc3d96cac4373b766c53aaf2e74b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gridSize: {fileID: 11400000, guid: c39e933e517772c438d8187a7f7333b6, type: 2}
-  porcentageSpaceBetweenCards: {fileID: 11400000, guid: 2717a1c570220954390e3ab0faf42f0b,
-    type: 2}
-  handSize: {fileID: 11400000, guid: 220101968a71802448ce2630e18fcc69, type: 2}
---- !u!4 &1187407260
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187407258}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 914385852}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1285453378
 GameObject:
@@ -1614,7 +1601,7 @@ GameObject:
   - component: {fileID: 1962029988}
   - component: {fileID: 1962029987}
   m_Layer: 0
-  m_Name: CubePool
+  m_Name: FirePool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1632,7 +1619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b97c00c89189346a88d34e97f5bf9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 148369060039648656, guid: 5ffd32bc1a1b83a45a01b2ea4c79d12e, type: 3}
+  prefab: {fileID: 4492532404354005061, guid: 52d4cb3210f49f449bf9a9937a50ff46, type: 3}
   parent: {fileID: 1962029988}
   growthSize: 5
 --- !u!4 &1962029988
@@ -1726,6 +1713,7 @@ GameObject:
   - component: {fileID: 2070527137}
   - component: {fileID: 2070527139}
   - component: {fileID: 2070527138}
+  - component: {fileID: 2070527140}
   m_Layer: 0
   m_Name: Enemigo3
   m_TagString: Enemy
@@ -1811,3 +1799,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 25
+--- !u!114 &2070527140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070527136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea174bb1cd8ab446a1d22864a4af6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeSize: {fileID: 11400000, guid: 85758eff758acf54bbe137296b72122b, type: 2}
+  sr: {fileID: 2070527138}
+  nodeScale: {fileID: 11400000, guid: b7a9f6d77d010cb40ab56ee03aa0314f, type: 2}

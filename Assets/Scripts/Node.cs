@@ -5,33 +5,33 @@ using UnityEngine;
 public class Node {
     public Vector3 position;
     public bool isBeingHovered;
-    public NodeType nodeType;
+    public ElementType elementType;
     public bool hasBeenHit;
 
     public Node(Vector3 position) {
-        nodeType = GetRandomType();
+        elementType = GetRandomType();
         this.position = position;
         isBeingHovered = false;
         hasBeenHit = false;
     }
 
     public void ResetNodeType() {
-        nodeType = GetRandomType();
+        elementType = GetRandomType();
         //nodeType = (Random.value > .5) ? NodeType.Cube : NodeType.Sphere;
     }
 
-    private NodeType GetRandomType() {
+    private ElementType GetRandomType() {
         var randomValue = Random.value;
-        if (randomValue <= .25) return NodeType.Cube;
-        if (randomValue > .25 && randomValue <= .5) return NodeType.Sphere;
-        if (randomValue > .5 && randomValue <= .75) return NodeType.Cylinder;
-        return NodeType.Capsule;
+        if (randomValue <= .25) return ElementType.FIRE;
+        if (randomValue > .25 && randomValue <= .5) return ElementType.WATER;
+        if (randomValue > .5 && randomValue <= .75) return ElementType.EARTH;
+        return ElementType.AIR;
     }
 }
 
-public enum NodeType {
-    Cube,
-    Sphere,
-    Cylinder,
-    Capsule
+public enum ElementType {
+    FIRE,
+    WATER,
+    EARTH,
+    AIR
 }
