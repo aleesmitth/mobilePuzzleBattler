@@ -11,5 +11,6 @@ public class Player : MonoBehaviour {
     public void SetStartingHeros(Hero[] startingHeros) {
         this.heros = startingHeros;
         print("i got the starting heros (:");
+        GameContextData.PlayerHeros = startingHeros;
     }
 }

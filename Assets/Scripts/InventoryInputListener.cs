@@ -2,11 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public partial class InputListener : MonoBehaviour {
+public class InventoryInputListener : MonoBehaviour {
     public Camera mainCamera;
+    public InventorGrid2D inventoryGrid;
 
     void Update() {
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            inventoryGrid.ResetGrid();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            SceneManager.LoadScene("Scenes/Map", LoadSceneMode.Single);
+        }
+        
         if (!Input.GetMouseButtonDown(0)) return;
 
         //Vector3 worldPosition = MousePositionToWorld();

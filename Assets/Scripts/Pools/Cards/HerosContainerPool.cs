@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardsPool : NodePool {
+public class HerosContainerPool : NodePool {
     public GameObject prefab;
     public Transform parent;
     public int growthSize;
-    public static CardsPool instance;
+    public static HerosContainerPool instance;
     private Queue<GameObject> queue = new Queue<GameObject>();
     
     private void Awake() {
@@ -14,10 +14,10 @@ public class CardsPool : NodePool {
     }
     
     private void MakeSingleton() {
-        if (instance == null) {
+        if (instance == default) {
             instance = this;
         }
-        else if(instance!=this)
+        else if(instance != this)
             Destroy(gameObject);
     }
     

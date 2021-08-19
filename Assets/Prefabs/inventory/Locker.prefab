@@ -633,7 +633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeSize: {fileID: 11400000, guid: 7d6f3bfbb4fdf614598afcd613728fa7, type: 2}
   sr: {fileID: 6268361104540773887}
-  nodeMargin: {fileID: 11400000, guid: 643822eb9d2eb644bb4359d58fd5ae59, type: 2}
+  nodeScale: {fileID: 11400000, guid: b7a9f6d77d010cb40ab56ee03aa0314f, type: 2}
 --- !u!114 &1579164072981294796
 MonoBehaviour:
   m_ObjectHideFlags: 0

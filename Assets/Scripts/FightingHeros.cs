@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FightingHeros : MonoBehaviour {
@@ -9,13 +10,19 @@ public class FightingHeros : MonoBehaviour {
     public FloatValue handSize;
     private GameObject[] herosGO;
 
-    private void PositionCardsInWorldMap() {//check if cards haven enough space to be placed
+    private void PositionHeroContainersInWorldMap() {//check if cards haven enough space to be placed
         if (porcentageSpaceBetweenCards.value >= 1 / handSize.value)
             porcentageSpaceBetweenCards.value = .1f; //default to .1 offset
         herosGO = new GameObject[(int)handSize.value];
         float cardSizeX = (gridSize.value.x - (porcentageSpaceBetweenCards.value * gridSize.value.x * (handSize.value - 1))) / handSize.value;
+        int a = 0;
+        for (int i = 0; i < 150000; i++) {
+            a++;
+        }
+        print(a);
         for (int i = 0; i < handSize.value; i++) {
-            herosGO[i] = CardsPool.instance.Get();
+            if (HerosContainerPool.instance == default) print("AAAAAAAAAAAAAAAAAAAAA");
+            herosGO[i] = HerosContainerPool.instance.Get();
             var position = herosGO[i].transform.position;
             var sr = herosGO[i].GetComponent<SpriteRenderer>();
             var sizeOfSprite = sr.bounds.extents * 2;
@@ -36,10 +43,15 @@ public class FightingHeros : MonoBehaviour {
     }
 
     private void OnDisable() {
+        EventManager.onNodesDamageCalculated -= Attack;
         if (herosGO == default) return;
         for (int i = 0; i < handSize.value; i++) {
-            CardsPool.instance.DestroyObject(herosGO[i]);
+            HerosContainerPool.instance.DestroyObject(herosGO[i]);
         }
+    }
+
+    private void OnEnable() {
+        EventManager.onNodesDamageCalculated += Attack;
     }
 
     public void Attack(Dictionary<ElementType,float> elementsDamage) {
@@ -48,11 +60,11 @@ public class FightingHeros : MonoBehaviour {
         }
     }
 
-    public void LoadHeros(Hero[] heros) {
-        if (heros == default) return;
-        this.activeHeros = new LinkedList<Hero>(heros);
+    private void Start() {
+        if (GameContextData.PlayerHeros == default) return;
+        this.activeHeros = new LinkedList<Hero>(GameContextData.PlayerHeros);
         int i = 0;
-        PositionCardsInWorldMap();
+        PositionHeroContainersInWorldMap();
         foreach (var hero in activeHeros) {
             print("my physicall hero, number " + i);
             herosGO[i].GetComponent<HeroContainer>().SetHero(hero);

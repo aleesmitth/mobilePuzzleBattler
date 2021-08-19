@@ -608,6 +608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 455762259}
+  inventoryGrid: {fileID: 2096568955}
 --- !u!4 &1321926031
 Transform:
   m_ObjectHideFlags: 0
@@ -847,7 +848,7 @@ GameObject:
   - component: {fileID: 2096568955}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Grid
+  m_TagString: InventoryGrid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

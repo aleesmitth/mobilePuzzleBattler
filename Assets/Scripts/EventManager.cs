@@ -14,7 +14,8 @@ public class EventManager {
     public static event Action<float> onAttackOneEnemy;
     public static event Action<Enemy> onEnemyDefeated;
     public static event Action onItemSelected;
-    public static event Action<EnemyData> onCollisionWithEnemy;
+    public static event Action onCollisionWithEnemy;
+    public static event Action<Dictionary<ElementType, float>> onNodesDamageCalculated;
 
     public static void OnDeleteNode(Vector3 position, TextMeshProUGUI textMeshProUGUI) {
         onDeleteNode?.Invoke(position, textMeshProUGUI);
@@ -52,7 +53,11 @@ public class EventManager {
         onItemSelected?.Invoke();
     }
 
-    public static void OnCollisionWithEnemy(EnemyData enemyData) {
-        onCollisionWithEnemy?.Invoke(enemyData);
+    public static void OnCollisionWithEnemy() {
+        onCollisionWithEnemy?.Invoke();
+    }
+
+    public static void OnNodesDamageCalculated(Dictionary<ElementType, float> elementsDamage) {
+        onNodesDamageCalculated?.Invoke(elementsDamage);
     }
 }

@@ -19,13 +19,15 @@ public class FightStarter : MonoBehaviour {
     private void OnMouseDown() {
         if (!enemyReadyToFight) return;
         Debug.Log("Started fight by clicking enemy");
-        EventManager.OnCollisionWithEnemy(this.enemyData);
+        GameContextData.EnemyToFightData = enemyData;
+        EventManager.OnCollisionWithEnemy();
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (!enemyReadyToFight) return;
         if (!other.CompareTag("Player")) return;
         Debug.Log("Started fight by colliding with enemy");
-        EventManager.OnCollisionWithEnemy(this.enemyData);
+        GameContextData.EnemyToFightData = enemyData;
+        EventManager.OnCollisionWithEnemy();
     }
 }

@@ -4,10 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Grid
   - Node
   - Enemy
   - Heros
+  - InventoryGrid
+  - FightGrid
   layers:
   - Default
   - TransparentFX
