@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02fd72884df1bda49a0c310c38f6f811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightingHeros: {fileID: 0}
 --- !u!4 &56784195
 Transform:
   m_ObjectHideFlags: 0
@@ -2049,8 +2048,17 @@ MonoBehaviour:
   maxEnemies: 6
   allPossibleEnemies:
   - sprite: {fileID: 21300114, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
+    maxTurnsToKill: 3
+    isItTimedFight: 0
+    maxTimeToKill: 5
   - sprite: {fileID: 21300134, guid: c3a40e1c46727b94e959990527f8e7fa, type: 3}
+    maxTurnsToKill: 5
+    isItTimedFight: 1
+    maxTimeToKill: 15
   - sprite: {fileID: 21300038, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
+    maxTurnsToKill: 8
+    isItTimedFight: 1
+    maxTimeToKill: 20
 --- !u!4 &1432989653
 Transform:
   m_ObjectHideFlags: 0
@@ -4219,6 +4227,26 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 194163298}
+    - target: {fileID: 4613790442056552866, guid: 3f3b9b522fbdac44fbaa0ea46fd8bbfe,
+        type: 3}
+      propertyPath: startingHeros.Array.data[0].evolutionNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613790442056552866, guid: 3f3b9b522fbdac44fbaa0ea46fd8bbfe,
+        type: 3}
+      propertyPath: startingHeros.Array.data[1].evolutionNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613790442056552866, guid: 3f3b9b522fbdac44fbaa0ea46fd8bbfe,
+        type: 3}
+      propertyPath: startingHeros.Array.data[2].evolutionNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613790442056552866, guid: 3f3b9b522fbdac44fbaa0ea46fd8bbfe,
+        type: 3}
+      propertyPath: startingHeros.Array.data[3].evolutionNumber
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6279264023817792628, guid: 3f3b9b522fbdac44fbaa0ea46fd8bbfe,
         type: 3}
       propertyPath: m_RootOrder

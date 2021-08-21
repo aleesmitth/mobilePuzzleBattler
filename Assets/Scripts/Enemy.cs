@@ -19,6 +19,6 @@ public class Enemy : MonoBehaviour {
     }
 
     private void Start() {
-        transform.GetComponent<SpriteRenderer>().sprite = GameContextData.EnemyToFightData.sprite;
+        transform.GetComponent<SpriteRenderer>().sprite = GameContextData.EnemyData.sprite;
     }
 }

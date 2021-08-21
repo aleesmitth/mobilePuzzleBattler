@@ -14,12 +14,20 @@ public class FightStarter : MonoBehaviour {
     public void LoadEnemyData(EnemyData enemyData) {
         this.enemyData = enemyData;
         transform.GetComponent<SpriteRenderer>().sprite = enemyData.sprite;
+        ResizeBoxCollider();
         this.enemyReadyToFight = true;
     }
+
+    private void ResizeBoxCollider() {
+        Vector2 size = gameObject.GetComponent<SpriteRenderer>().sprite.bounds.size;
+        gameObject.GetComponent<BoxCollider2D>().size = size;
+        gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(0, size.y / 2);
+    }
+
     private void OnMouseDown() {
         if (!enemyReadyToFight) return;
         Debug.Log("Started fight by clicking enemy");
-        GameContextData.EnemyToFightData = enemyData;
+        GameContextData.EnemyData = enemyData;
         EventManager.OnCollisionWithEnemy();
     }
 
@@ -27,7 +35,7 @@ public class FightStarter : MonoBehaviour {
         if (!enemyReadyToFight) return;
         if (!other.CompareTag("Player")) return;
         Debug.Log("Started fight by colliding with enemy");
-        GameContextData.EnemyToFightData = enemyData;
+        GameContextData.EnemyData = enemyData;
         EventManager.OnCollisionWithEnemy();
     }
 }
