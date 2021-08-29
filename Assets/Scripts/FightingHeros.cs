@@ -21,8 +21,8 @@ public class FightingHeros : MonoBehaviour {
         }
         print(a);
         for (int i = 0; i < handSize.value; i++) {
-            if (HerosContainerPool.instance == default) print("AAAAAAAAAAAAAAAAAAAAA");
-            herosGO[i] = HerosContainerPool.instance.Get();
+            if (ObjectPool.instance == default) print("AAAAAAAAAAAAAAAAAAAAA");
+            herosGO[i] = ObjectPool.instance.GetObject(PoolsNames.HERO, transform);
             var position = herosGO[i].transform.position;
             var sr = herosGO[i].GetComponent<SpriteRenderer>();
             var sizeOfSprite = sr.bounds.extents * 2;
@@ -46,7 +46,7 @@ public class FightingHeros : MonoBehaviour {
         EventManager.onNodesDamageCalculated -= Attack;
         if (herosGO == default) return;
         for (int i = 0; i < handSize.value; i++) {
-            HerosContainerPool.instance.DestroyObject(herosGO[i]);
+            ObjectPool.instance.DestroyObject(PoolsNames.HERO, herosGO[i]);
         }
     }
 

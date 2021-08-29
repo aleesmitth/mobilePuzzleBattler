@@ -716,12 +716,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1328405365}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca08846ddae64ac4a380354ebbe293f7, type: 3}
+  m_Script: {fileID: 11500000, guid: f665a32c7be2bf244bbd2c3a820d7acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5298518789600115340, guid: 508a6d2f314e8e041b79e4eff3e865c2, type: 3}
-  parent: {fileID: 2096568954}
-  growthSize: 5
+  prefab: {fileID: 0}
+  parent: {fileID: 0}
+  growthSize: 0
+  pools:
+  - prefabTag: Inventory
+    pooledPrefab: {fileID: 5298518789600115340, guid: 508a6d2f314e8e041b79e4eff3e865c2,
+      type: 3}
+    growthSize: 4
 --- !u!4 &1328405367
 Transform:
   m_ObjectHideFlags: 0

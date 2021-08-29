@@ -57,7 +57,7 @@ public class InventorGrid2D : MonoBehaviour {
         else {
             for (int i = 0; i < gridGO.Length; i++) {
                 for (int j = 0; j < gridGO[i].Length; j++) {
-                    InventoryPool.instance.DestroyObject(gridGO[i][j]);
+                    ObjectPool.instance.DestroyObject(PoolsNames.INVENTORY, gridGO[i][j]);
                 }
             }
         }
@@ -65,7 +65,7 @@ public class InventorGrid2D : MonoBehaviour {
         for (int i = 0; i < gridGO.Length; i++) {
             for (int j = 0; j < gridGO[i].Length; j++) {
                 grid[i][j].ResetNodeType();
-                gridGO[i][j] = InventoryPool.instance.Get();
+                gridGO[i][j] = ObjectPool.instance.GetObject(PoolsNames.INVENTORY);
                 gridGO[i][j].GetComponent<MaterialController>().MakeVisible();
                 gridGO[i][j].transform.position = grid[i][j].position;
             }

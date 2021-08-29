@@ -40,7 +40,7 @@ public class NodeGrid : MonoBehaviour {
                     newNodesOffset + (j + grid[i].Length) * nodeSize.value.y + nodeSize.value.y/2 + j,
                     0) - gridSize.value / 2);
                 GameObject nodeGO = default;
-                nodeGO = PoolManager.Get(node.elementType);
+                nodeGO = NodeCreatorAndDestroyer.Get(node.elementType);
                 nodeGO.GetComponent<MaterialController>().MakeInvisible();
                 nodeGO.transform.position = node.position;
                 //nodeGO.transform.localScale = new Vector3(nodeSize.value.x / 2, 1, nodeSize.value.z / 2);
@@ -193,7 +193,7 @@ public class NodeGrid : MonoBehaviour {
         else {
             for (int i = 0; i < gridGO.Length; i++) {
                 for (int j = 0; j < gridGO[i].Length; j++) {
-                    PoolManager.Destroy(grid[i][j].elementType, gridGO[i][j]);
+                    NodeCreatorAndDestroyer.Destroy(grid[i][j].elementType, gridGO[i][j]);
                 }
             }
         }
@@ -201,7 +201,7 @@ public class NodeGrid : MonoBehaviour {
         for (int i = 0; i < gridGO.Length; i++) {
             for (int j = 0; j < gridGO[i].Length; j++) {
                 grid[i][j].ResetNodeType();
-                gridGO[i][j] = PoolManager.Get(grid[i][j].elementType);
+                gridGO[i][j] = NodeCreatorAndDestroyer.Get(grid[i][j].elementType);
                 gridGO[i][j].GetComponent<MaterialController>().MakeVisible();
                 gridGO[i][j].transform.position = grid[i][j].position;
             }
